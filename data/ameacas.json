@@ -1,16 +1,1 @@
-[
-    {
-        "id": 1,
-        "nome": "Aberração de Carne",
-        "VD": 40,
-        "tipos": [
-            {
-                "principal": true,
-                "nome_tipo": "sangue"
-            }
-        ],
-        "tamanho": "Grande",
-        "pontos_vida": 70,
-        "defesa": 19
-    }
-]
+[]

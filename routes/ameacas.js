@@ -61,8 +61,8 @@ router.post('/', (req, res) => {
     const { nome, VD, tipos, tamanho, pontos_vida, defesa } = req.body;
 
     // Validação se valor inserido
-    if (!tipos || !nome) {
-        return res.status(400).json({ erro: "nome e tipos são obrigatórios"});
+    if (!tipos || !nome || !descricao || !defesa || !pontos_vida) {
+        return res.status(400).json({ erro: "nome, tipos, descrição, defesa e pontos de vida são obrigatórios"});
     }
 
     const ameacas = readData();
@@ -76,9 +76,14 @@ router.post('/', (req, res) => {
         tamanho,
         presença_perturbadora,
         sentidos,
-        pontos_vida,
         defesa,
-
+        pontos_vida,
+        resistencias,
+        vulnerabilidade,
+        atributos,
+        deslocamento,
+        acoes,
+        passivas
     };
 
     ameacas.push(novaAmeaca);
@@ -89,7 +94,11 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => { // Rota PUT (modificar) algum ameaça por ID
     const id = Number(req.params.id);
-    const { nome, VD, tipos, tamanho, pontos_vida, defesa } = req.body;
+
+    const { nome, descricao, VD, tipos, categoria, tamanho, presença_perturbadora, sentidos, defesa,
+            pontos_vida, resistencias, vulnerabilidade, atributos, deslocamento, acoes, passivas 
+        } = req.body;
+
     const ameacas = readData();
     const index= ameacas.findIndex(a => a.id === id);
 
@@ -100,7 +109,8 @@ router.put('/:id', (req, res) => { // Rota PUT (modificar) algum ameaça por ID
         });
     };
 
-    ameacas[index] = { id_ameaca, nome, VD, tipos, tamanho, pontos_vida, defesa };
+    ameacas[index] = { id_ameaca, nome, descricao, VD, tipos, categoria, tamanho, presença_perturbadora, 
+        sentidos, defesa, pontos_vida, resistencias, vulnerabilidade, atributos, deslocamento, acoes, passivas  };
 
     fs.writeFileSync('./data/ameacas.json', JSON.stringify(ameacas, null, 2));
     res.json(ameacas[index]);

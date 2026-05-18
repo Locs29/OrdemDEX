@@ -69,11 +69,16 @@ router.post('/', (req, res) => {
     const novaAmeaca = {
         id: ameacas.length > 0 ? ameacas[ameacas.length - 1].id + 1 : 1 ,
         nome,
+        descricao,
         VD,
         tipos,
+        categoria,
         tamanho,
+        presença_perturbadora,
+        sentidos,
         pontos_vida,
-        defesa
+        defesa,
+
     };
 
     ameacas.push(novaAmeaca);

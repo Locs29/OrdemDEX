@@ -58,11 +58,13 @@ router.get('/:nome', (req, res) => {
 
 // POST - Criar nova ameaça
 router.post('/', (req, res) => {
-    const { nome, VD, tipos, tamanho, pontos_vida, defesa } = req.body;
+    const { nome, descricao, VD, tipos, categoria, tamanho, presença_perturbadora, 
+        sentidos, defesa, pontos_vida, resistencias, vulnerabilidade, 
+        atributos, deslocamento, acoes, passivas } = req.body;
 
     // Validação se valor inserido
-    if (!tipos || !nome || !descricao || !defesa || !pontos_vida) {
-        return res.status(400).json({ erro: "nome, tipos, descrição, defesa e pontos de vida são obrigatórios"});
+    if (!tipos || !nome || !pontos_vida) {
+        return res.status(400).json({ erro: "nome, tipos, e pontos de vida são obrigatórios"});
     }
 
     const ameacas = readData();

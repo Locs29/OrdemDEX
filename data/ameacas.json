@@ -1,1 +1,88 @@
-[]
+[
+    {
+        "id": 1,
+        "nome": "Aberração de Carne",
+        "descricao": "Originalmente, a aberração de carne foi um experimento fracassado para juntar dois corpos em um só...",
+        "VD": 40,
+        "tipos": [
+            {
+            "principal": true,
+            "nome": "sangue"
+            }
+        ],
+        "categoria": "criatura",
+        "tamanho": "grande",
+        "defesa": 19,
+        "pontos_vida": {
+            "total": 70,
+            "machucado": 35
+        },
+        "resistencias": [
+            {
+            "nome": "balístico",
+            "valor": 5
+            },
+            {
+            "nome": "impacto",
+            "valor": 5
+            },
+            {
+            "nome": "perfuração",
+            "valor": 5
+            },
+            {
+            "nome": "sangue",
+            "valor": 10
+            }
+        ],
+        "vulnerabilidade": "morte",
+        "atributos": {
+            "agi": 1,
+            "for": 3,
+            "int": 0,
+            "pre": 1,
+            "vig": 3
+        },
+        "deslocamento": 9,
+        "acoes": [
+            {
+            "nome": "pancada",
+            "duracao": "padrão",
+            "tipo_acao": "agredir",
+            "alcance": "corpo a corpo",
+            "critico": 2,
+            "teste": {
+                "qtd_dado": 3,
+                "bonus": 10
+            },
+            "dano": [
+                {
+                "qtd_dado": 2,
+                "tipo_dado": "d6",
+                "bonus": 6
+                }
+            ],
+            "descricao": "ataque padrão"
+            },
+            {
+            "nome": "agarrão",
+            "duracao": "reação",
+            "tipo_acao": "agarrar",
+            "alcance": "corpo a corpo",
+            "critico": null,
+            "teste": {
+                "qtd_dado": 3,
+                "bonus": 12
+            },
+            "dano": [],
+            "descricao": "Se a aberração de carne acertar um ataque de pancada, ela pode tentar agarrar o alvo. Ela pode manter até dois personagens agarrados de uma vez."
+            }
+        ],
+        "passivas": [
+            {
+            "nome": "percepção às cegas",
+            "descricao": null
+            }
+        ]
+    }
+]

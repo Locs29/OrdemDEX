@@ -1,88 +1,313 @@
 [
-    {
-        "id": 1,
-        "nome": "Aberração de Carne",
-        "descricao": "Originalmente, a aberração de carne foi um experimento fracassado para juntar dois corpos em um só...",
-        "VD": 40,
-        "tipos": [
-            {
-            "principal": true,
-            "nome": "sangue"
-            }
-        ],
-        "categoria": "criatura",
-        "tamanho": "grande",
-        "defesa": 19,
-        "pontos_vida": {
-            "total": 70,
-            "machucado": 35
+  {
+    "id": 1,
+    "nome": "Aberração de Carne",
+    "descricao": "Originalmente, a aberração de carne foi um experimento fracassado para juntar dois corpos em um só. A dor agoniante das duas cobaias que se mantiveram conscientes durante todo o processo tormentoso se transformou numa fúria desoladora alimentada pelo Sangue.",
+    "enigma_medo": null,
+    "VD": 40,
+    "categoria": "criatura",
+    "tamanho": "grande",
+    "vulnerabilidade": "morte",
+    "deslocamento": 9,
+    "defesa": 19,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "sangue"
+      }
+    ],
+    "presenca_perturbadora": {
+      "dt": 15,
+      "dano": [
+        {
+          "qtd_dado": 3,
+          "tipo_dado": "d6",
+          "tipo_dano": "mental"
+        }
+      ],
+      "imunidade_percentual": 30
+    },
+    "atributos": {
+      "agi": 1,
+      "for": 3,
+      "int": 0,
+      "pre": 1,
+      "vig": 3
+    },
+    "pontos_vida": {
+      "total": 70,
+      "machucado": 35
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 1,
+        "bonus": 5
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 1,
+        "bonus": 0
+      },
+      {
+        "nome": "fortitude",
+        "qtd_dado": 3,
+        "bonus": 10
+      },
+      {
+        "nome": "reflexos",
+        "qtd_dado": 1,
+        "bonus": 0
+      },
+      {
+        "nome": "vontade",
+        "qtd_dado": 1,
+        "bonus": 0
+      }
+    ],
+    "resistencias": [
+      {
+        "nome": "balístico",
+        "valor": 5
+      },
+      {
+        "nome": "impacto",
+        "valor": 5
+      },
+      {
+        "nome": "perfuração",
+        "valor": 5
+      },
+      {
+        "nome": "sangue",
+        "valor": 10
+      }
+    ],
+    "acoes": [
+      {
+        "nome": "pancada",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": 2,
+        "teste": {
+          "qtd_dado": 3,
+          "bonus": 10
         },
-        "resistencias": [
-            {
-            "nome": "balístico",
-            "valor": 5
-            },
-            {
-            "nome": "impacto",
-            "valor": 5
-            },
-            {
-            "nome": "perfuração",
-            "valor": 5
-            },
-            {
-            "nome": "sangue",
-            "valor": 10
-            }
-        ],
-        "vulnerabilidade": "morte",
-        "atributos": {
-            "agi": 1,
-            "for": 3,
-            "int": 0,
-            "pre": 1,
-            "vig": 3
+        "dano": {
+          "qtd_dado": 2,
+          "tipo_dado": "d6",
+          "bonus": 6,
+          "tipo_dano": "impacto"
         },
-        "deslocamento": 9,
-        "acoes": [
-            {
-            "nome": "pancada",
-            "duracao": "padrão",
-            "tipo_acao": "agredir",
-            "alcance": "corpo a corpo",
-            "critico": 2,
-            "teste": {
-                "qtd_dado": 3,
-                "bonus": 10
-            },
-            "dano": [
-                {
-                "qtd_dado": 2,
-                "tipo_dado": "d6",
-                "bonus": 6
-                }
-            ],
-            "descricao": "ataque padrão"
-            },
-            {
-            "nome": "agarrão",
-            "duracao": "reação",
-            "tipo_acao": "agarrar",
-            "alcance": "corpo a corpo",
-            "critico": null,
-            "teste": {
-                "qtd_dado": 3,
-                "bonus": 12
-            },
-            "dano": [],
-            "descricao": "Se a aberração de carne acertar um ataque de pancada, ela pode tentar agarrar o alvo. Ela pode manter até dois personagens agarrados de uma vez."
-            }
-        ],
-        "passivas": [
-            {
-            "nome": "percepção às cegas",
-            "descricao": null
-            }
-        ]
-    }
+        "descricao": "ataque padrão"
+      },
+      {
+        "nome": "agarrão",
+        "duracao": "reação",
+        "tipo_acao": "agarrar",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 3,
+          "bonus": 12
+        },
+        "dano": {},
+        "descricao": "Se a aberração de carne acertar um ataque de pancada, ela pode tentar agarrar o alvo. Ela pode manter até dois personagens agarrados de uma vez."
+      },
+      {
+        "nome": "Abocanhar",
+        "duracao": "movimento",
+        "tipo_acao": "agarrar",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "A aberração de sangue leva até dois personagens agarrados para dentro de sua boca central, que são abocanhados e continuam agarrados. Quando é abocanhado, e no início de cada turno da aberração em que continuar agarrado desta forma, o personagem sofre 3d6 pontos de dano de perfuração (Fortitude DT 15 reduz à metade). Qualquer personagem adjacente a aberração de sangue pode gastar uma ação padrão para fazer um teste de Atletismo (DT 20) para tentar tirar outro personagem de dentro da boca."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "percepção às cegas",
+        "descricao": null
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "nome": "Aniquilação",
+    "descricao": "A maior criatura já registrada na história da Realidade. Apenas relatos de civilizações distantes foram encontrados como evidência desse ser que só pode ser descrito como um apocalipse paranormal",
+    "VD": 380,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "sangue"
+      },
+      {
+        "principal": false,
+        "nome": "medo"
+      }
+    ],
+    "categoria": "criatura",
+    "tamanho": "colossal",
+    "defesa": 58,
+    "pontos_vida": {
+      "total": 1200,
+      "machucado": 600
+    },
+    "resistencias": [
+      {
+        "nome": "dano",
+        "valor": 50
+      }
+    ],
+    "vulnerabilidade": "morte",
+    "atributos": {
+      "agi": 4,
+      "for": 5,
+      "int": 3,
+      "pre": 4,
+      "vig": 5
+    },
+    "deslocamento": 15,
+    "acoes": [
+      {
+        "nome": "garras",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": 2,
+        "teste": {
+          "qtd_dado": 5,
+          "bonus": 40
+        },
+        "dano": {
+          "qtd_dado": 4,
+          "tipo_dado": "d10",
+          "bonus": 30,
+          "tipo_dano": "sangue"
+        },
+        "descricao": "ataque com as garras"
+      },
+      {
+        "nome": "Tentáculos Espinhentos",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": 2,
+        "teste": {
+          "qtd_dado": 5,
+          "bonus": 40
+        },
+        "dano": {
+          "qtd_dado": 2,
+          "tipo_dado": "d12",
+          "bonus": 30,
+          "tipo_dano": "sangue"
+        },
+        "descricao": "Faz um ataque com seus tentáculos"
+      },
+      {
+        "nome": "Disparo de espinhos",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "médio",
+        "critico": 3,
+        "teste": {
+          "qtd_dado": 4,
+          "bonus": 40
+        },
+        "dano": {
+          "qtd_dado": 2,
+          "tipo_dado": "d10",
+          "bonus": 20,
+          "tipo_dano": "sangue"
+        },
+        "descricao": "Dispara espinhos de seu corpo"
+      },
+      {
+        "nome": "Agarrão",
+        "duracao": "reação",
+        "tipo_acao": "Agarrão",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 5,
+          "bonus": 50
+        },
+        "dano": {},
+        "descricao": "Se a aniquilação acertar um ataque de tentáculos espinhentos, ela pode tentar agarrar o alvo (teste 5d20+50). Ela pode manter até quatro personagens agarrados por vez."
+      },
+      {
+        "nome": "Estinto aniquilador",
+        "duracao": "reação",
+        "tipo_acao": "Ataque",
+        "alcance": "curto",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "Sempre que um personagem em alcance curto da aniquilação se movimenta mais do que 3m, a aniquilação realiza um ataque de tentáculos espinhentos contra o personagem."
+      },
+      {
+        "nome": "Apertar e destruir",
+        "duracao": "livre",
+        "tipo_acao": "Ataque",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": null,
+        "dano": {
+          "qtd_dado": 0,
+          "tipo_dado": "d20",
+          "bonus": 40
+        },
+        "descricao": "No início do seu turno, a aniquilação aperta os personagens agarrados com seus tentáculos, causando 40 pontos de dano de Sangue."
+      },
+      {
+        "nome": "Bater as asas",
+        "duracao": "movimento",
+        "tipo_acao": "ataque",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": null,
+        "dano": {
+          "qtd_dado": 8,
+          "tipo_dado": "d6",
+          "bonus": 0,
+          "tipo_dano": "mental"
+        },
+        "descricao": "A aniquilação bate suas asas, criando um som ensurdecedor. Cada personagem em alcance longo sofre 8d6 pontos de dano Mental, é empurrado 6m para longe da aniquilação e fica atordoado por uma rodada (Fortitude DT 40 reduz o dano à metade e evita os efeitos)."
+      },
+      {
+        "nome": "Estrangulamento final",
+        "duracao": "movimento",
+        "tipo_acao": "ataque",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "A aniquilação se desloca 15m enquanto seus inúmeros braços agarram e estrangulam personagens no caminho. Cada personagem que ficar adjacente a aniquilação durante esse deslocamento fica agarrado e asfixiado (Reflexos DT 30 evita). Um personagem agarrado pode escapar gastando uma ação padrão e passando em um teste de Reflexos (DT 30)."
+      },
+      {
+        "nome": "Tempestade de espinhos",
+        "duracao": "completa",
+        "tipo_acao": "ataque",
+        "alcance": "médio",
+        "critico": null,
+        "teste": null,
+        "dano": {
+          "qtd_dado": 20,
+          "tipo_dado": "d6",
+          "bonus": 20,
+          "tipo_dano": "sangue"
+        },
+        "descricao": "A aniquilação lança todos os seus espinhos. Todos os personagens em alcance médio sofrem 20d6+20 pontos de dano de Sangue (Reflexos DT 40 reduz à metade). A aniquilação só pode usar esta habilidade uma vez por cena e, quando a usa, perde seu disparo de espinhos até o fim da cena."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "percepção às cegas",
+        "descricao": null
+      }
+    ]
+  }
 ]

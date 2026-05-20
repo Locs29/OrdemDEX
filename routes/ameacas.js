@@ -41,10 +41,10 @@ router.get('/:id', (req, res) => {
 });
 
 // Rota GET (ler) ameaças por NOME
-router.get('/:nome', (req, res) => {  
+router.get('/nome/:nome', (req, res) => {  
     const nome = String(req.params.nome);
     const ameacas = readData();
-    const ameaca = ameacas.find(a => a.nome === nome);
+    const ameaca = ameacas.find(a => a.nome.toLowerCase() === nome.toLowerCase());
 
     if (!ameaca) { //Verifica se existe o Nome, se não, mostra erro
         return res.status(404).json({
@@ -58,7 +58,7 @@ router.get('/:nome', (req, res) => {
 
 // POST - Criar nova ameaça
 router.post('/', (req, res) => {
-    const { nome, descricao, VD, tipos, categoria, tamanho, presença_perturbadora, 
+    const { nome, descricao, enigma_medo, VD, tipos, categoria, tamanho, presença_perturbadora, 
         sentidos, defesa, pontos_vida, resistencias, vulnerabilidade, 
         atributos, deslocamento, acoes, passivas } = req.body;
 
@@ -72,6 +72,7 @@ router.post('/', (req, res) => {
         id: ameacas.length > 0 ? ameacas[ameacas.length - 1].id + 1 : 1 ,
         nome,
         descricao,
+        enigma_medo,
         VD,
         tipos,
         categoria,
@@ -97,7 +98,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => { // Rota PUT (modificar) algum ameaça por ID
     const id = Number(req.params.id);
 
-    const { nome, descricao, VD, tipos, categoria, tamanho, presença_perturbadora, sentidos, defesa,
+    const { nome, descricao, enigma_medo, VD, tipos, categoria, tamanho, presença_perturbadora, sentidos, defesa,
             pontos_vida, resistencias, vulnerabilidade, atributos, deslocamento, acoes, passivas 
         } = req.body;
 
@@ -111,10 +112,10 @@ router.put('/:id', (req, res) => { // Rota PUT (modificar) algum ameaça por ID
         });
     };
 
-    ameacas[index] = { id_ameaca, nome, descricao, VD, tipos, categoria, tamanho, presença_perturbadora, 
+    ameacas[index] = { id, nome, descricao, enigma_medo, VD, tipos, categoria, tamanho, presença_perturbadora, 
         sentidos, defesa, pontos_vida, resistencias, vulnerabilidade, atributos, deslocamento, acoes, passivas  };
 
-    fs.writeFileSync('./data/ameacas.json', JSON.stringify(ameacas, null, 2));
+    writeData(ameacas)
     res.json(ameacas[index]);
 });
 

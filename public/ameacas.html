@@ -5,15 +5,100 @@
     <meta name="Ameaças" content="width=device-width, initial-scale=1.0">
     <title>OrdemDEX-Ameaças</title>
     <link rel="stylesheet" href="ameacas.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Girassol&family=M+PLUS+1:wght@100..900&display=swap');
+    </style>
 </head>
 <body>
-    <h1>OrdemDEX</h1>
-    <h2 class="subtitulo">Ameaças</h2>
-    <p class="instruções">Pesquise uma ameaça do livro</p>
+    <header>
+        <h1>OrdemDEX</h1>
+        <h2>Ameaças</h2>
+    </header>
+    
+
+
+    <p class="instrucoes">Pesquise uma ameaça do livro:</p>
 
     <div class="buscar">
         <input type="text" id="inputAmeaca" placeholder="Ex: Zumbi de sangue, Magistrada... "
             onkeydown="if(event.key==='Enter') buscar()" />
+        <button class="Buscar" onclick="buscar()">BUSCAR</button>
     </div>
+
+    <br>
+
+    <div id="resultado"></div>
+
+    <script>
+        async function buscar() {
+            const termoBusca = document.getElementById('inputAmeaca').value.trim();
+            const div = document.getElementById('resultado');
+
+            if (!termoBusca) {
+                div.innerHTML = '<div class="erro">Digite o nome da ameaça!</div>';
+                return;
+            }
+
+            div.innerHTML = '<div class="carregando">Buscando...</div>';
+
+            try {
+                // Faz requisição para a rota da API de Ameaças (buscando pelo Nome)
+                const resposta = await fetch(`http://localhost:3000/ameacas/nome/${termoBusca}`);
+                const dados = await resposta.json();
+
+                if (!resposta.ok) {
+                    // Usa a mensagem de erro no backend
+                    div.innerHTML = `<div class="erro">${dados.mensagem || "Ameaça não encontrada"}</div>`;
+                    return;
+                }
+
+                // O array 'tipos' no seu JSON é composto por objetos, então 't.nome'
+                const tiposHTML = dados.tipos
+                    .map(t => `<span class="tipo ${t.nome.toLowerCase()}"> ${t.nome}</span>`)
+                    .join('');
+
+                // Mapeia os nomes das ações da criatura (se não houver, exibe "Nenhuma")
+                const acoesNomes = dados.acoes && dados.acoes.length > 0 
+                    ? dados.acoes.map(a => a.nome).join(', ') 
+                    : 'Nenhuma ação cadastrada';
+
+                div.innerHTML = `
+                    <div class="card">
+                        <h2 class="nomeAmeaca">${dados.nome}</h2>
+                        <div class="tipos">${tiposHTML}</div>
+                        <br>
+                        <div class="descricao">${dados.descricao}</div>
+                        <br>
+                        <div class='info-grid'>
+                            <div class='info-item'>
+                                <div class='label'>VD</div>
+                                <div class='value'>${dados.VD}</div>
+                            </div>
+                            <div class='info-item'>
+                                <div class='label'>Tamanho</div>
+                                <div class='value'>${dados.tamanho}</div>
+                            </div>
+                            <div class='info-item'>
+                                <div class='label'>PV Total</div>
+                                <div class='value'>${dados.pontos_vida.total}</div>
+                            </div>
+                            <div class='info-item'>
+                                <div class='label'>Defesa</div>
+                                <div class='value'>${dados.defesa}</div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class='habilidades'>
+                            <strong>Ações:</strong>
+                            ${acoesNomes}
+                        </div>
+                    </div>
+                `;
+                
+            } catch (e) {
+                div.innerHTML = '<div class="erro">Erro ao conectar com o servidor. Verifique se a API está rodando.</div>';
+            }
+        }
+    </script>
 </body>
 </html>

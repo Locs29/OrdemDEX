@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
-
+const cors = require('cors');
 //Exportas as rotas
 
 const ameacaRoutes = require('./routes/ameacas'); //rota das ameaças
 
-
+app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 

@@ -1,0 +1,141 @@
+body{
+    text-align: center;
+    margin: 0;
+    background-color: rgb(10, 1, 1);
+    color: aliceblue;
+}
+/* CABEÇALHO DA PÁGINA */
+header{
+    width: 100%;    
+    font-family: "Girassol", serif;
+    background-color: rgb(180, 37, 37);
+    padding-top: 1px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+h1{
+    text-shadow: 2px 2px 2px #000;
+    font-size: 50px;
+    margin-bottom: 0px;
+}
+
+h2{
+    margin-top: 0px;
+    padding: 10px;
+}
+
+/* CORPO DA PÁGINA */
+
+.instrucoes{
+    font-family: "M PLUS 1", sans-serif;
+    font-size: large;
+    margin-bottom: 0;
+}
+
+#inputAmeaca{
+    text-align: justify;
+    font-family: "M PLUS 1", sans-serif;
+    background-color: aliceblue;
+    margin-left: 1px;
+    width: 75%;
+    padding: 7px;
+    border-radius: 5px;
+    border: 3px solid brown;
+}
+
+#inputAmeaca:focus{
+    outline: none;                    
+    border-color: #8B0000;            
+    box-shadow: 0 0 8px #e58585b7;
+}
+#inputAmeaca::placeholder{
+    color: #1a0101;
+}
+
+.Buscar{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: brown;
+    color: aliceblue;
+    font-family: "M PLUS 1", sans-serif;
+}
+
+/*CARDS*/
+
+.card{
+    background-color: rgb(129, 23, 23);
+    padding: 20px;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 3px #f14848;
+    font-family: "M PLUS 1", sans-serif;
+    font-size: medium;
+}
+.nomeAmeaca{
+    font-family: "Girassol", serif;
+}
+/*Config dos tipos*/
+.tipo {
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    border: 2px solid transparent; 
+    margin: 2%;
+}
+
+.sangue {
+    border-color:#4d0606 ;      
+    color: #ffffff;          
+    background-color: rgb(197, 18, 18);  
+}
+
+.morte {
+    border-color: #555555;     
+    color: #ffffff;             
+    background-color: #28292b;  
+}
+.conhecimento {
+    border-color: #ffd700;     
+    color: #ffffff;
+    background-color: #332b00; 
+}
+
+.energia {
+    border-color: #8a2be2;      
+    color: #ffffff;
+    background-color: #200b3b;
+}
+
+.medo {
+    border-color: #1b3972;      
+    color: #000000;
+    background-color: #6db5df;
+}
+.descricao{
+    text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.info-grid{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.info-item{
+    background-color: #ffba8b50;
+    border: 2px solid #4d0505;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.info-item .label {
+    font-weight: bold;
+    color: #180101;
+}

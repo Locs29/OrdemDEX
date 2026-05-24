@@ -67,15 +67,20 @@ h2{
 .card{
     background-color: rgb(129, 23, 23);
     padding: 20px;
-    margin: 15px;
+    margin: 10px;
+    margin-left: 20%;
+    margin-right: 20%;
     border-radius: 10px;
     box-shadow: 0px 2px 3px #f14848;
     font-family: "M PLUS 1", sans-serif;
     font-size: medium;
 }
+
 .nomeAmeaca{
     font-family: "Girassol", serif;
+    text-shadow: 2px 2px 2px #000;
 }
+
 /*Config dos tipos*/
 .tipo {
     padding: 5px 10px;
@@ -115,27 +120,171 @@ h2{
     color: #000000;
     background-color: #6db5df;
 }
+
+/*FIM TIPOS - COMEÇO Imagem e descrição*/
+
+#img-texto{
+    display: flex;
+    align-items: center;
+}
+
+.imagem-criatura{
+    width: 20%;
+    margin-left: 5%;
+    padding: 12px;
+    border: 2px solid #4d0606;
+    border-radius: 5px;
+    background-color: #ffba8b50;
+    transition: transform 0.3s ease-in-out;
+}
+.imagem-criatura:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    background-color: #c44f4b50;
+}
+
 .descricao{
     text-align: justify;
     margin-left: 10%;
     margin-right: 10%;
 }
 
+/*FIM Imagem e descrição - Começo Atributos*/
+
+.atributos-container {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo-atributos {
+    background-color: #000;
+    color: #fff;
+    padding: 2px 15px;
+    margin: 0;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px #6b0808; 
+}
+
+.atributos-lista {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffba8b50;
+    border: 2px solid #4d0505;
+    padding: 3px;
+    border-radius: 0 10px 10px 10px;
+    gap: 10px;
+}
+
+.atributo-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.atributo-label {
+    font-family: "Girassol", serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #180101;
+}
+
+.hexagono {
+    width: 35px;
+    height: 40px;
+    background-color: #000; 
+    color: #fff;            
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "M PLUS 1", sans-serif;
+    font-size: 1.2em;
+    font-weight: 900;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/*FIM Atributos - Começo grid de informações base*/
 .info-grid{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 18px;
+    gap: 10px;
 }
+
+.info-grid-defesa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 
 .info-item{
     background-color: #ffba8b50;
     border: 2px solid #4d0505;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 25px;
+    margin-bottom: 5px;
 }
 
 .info-item .label {
     font-weight: bold;
     color: #180101;
+    font-size: large;
+    font-style: italic;
+    margin-bottom: 3px;
+}
+
+.info-item .label2 {
+    color: #160101;
+    font-size: medium;
+    font-style: italic;
+}
+
+/*Enigma do medo*/
+.enigma-medo{
+    text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.enigma-medo {
+    text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#Enigma{
+    color: #160101;
+}
+
+h3{
+    font-family: "Girassol", serif;
+    text-shadow: 2px 2px 2px #000;
+    font-size: 25px;
+    margin-bottom: 0px;
+}
+.acao-item{
+    background-color: #fdb38250;
+    margin-bottom: 5%;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow:1px 1px 10px #2400009a;
+}
+.corpo-item{
+    color: aliceblue;
+    background-color: #5e070750;
+    border-radius: 10px;
+    text-align: center;
+    padding: 5%;
+}
+
+strong{
+    color: #3f0000;
 }

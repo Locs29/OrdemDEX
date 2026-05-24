@@ -4,6 +4,7 @@
     "nome": "Aberração de Carne",
     "descricao": "Originalmente, a aberração de carne foi um experimento fracassado para juntar dois corpos em um só. A dor agoniante das duas cobaias que se mantiveram conscientes durante todo o processo tormentoso se transformou numa fúria desoladora alimentada pelo Sangue.",
     "enigma_medo": null,
+    "img": "img/AberracaoCarne.png",
     "VD": 40,
     "categoria": "criatura",
     "tamanho": "grande",
@@ -137,6 +138,8 @@
     "id": 2,
     "nome": "Aniquilação",
     "descricao": "A maior criatura já registrada na história da Realidade. Apenas relatos de civilizações distantes foram encontrados como evidência desse ser que só pode ser descrito como um apocalipse paranormal",
+    "enigma_medo": "O Enigma de Medo da Aniquilação é desconhecido. Quando ele for resolvido, a Aniquilação perde sua resistência a dano e sua habilidade Tempestade de Espinhos.",
+    "img":"img/Aniquilacao.png",
     "VD": 380,
     "tipos": [
       {

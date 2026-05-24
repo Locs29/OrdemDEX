@@ -57,17 +57,119 @@
                     .map(t => `<span class="tipo ${t.nome.toLowerCase()}"> ${t.nome}</span>`)
                     .join('');
 
-                // Mapeia os nomes das ações da criatura (se não houver, exibe "Nenhuma")
-                const acoesNomes = dados.acoes && dados.acoes.length > 0 
-                    ? dados.acoes.map(a => a.nome).join(', ') 
-                    : 'Nenhuma ação cadastrada';
+                const atributosHTML = dados.atributos 
+                    ? `
+                    <div class="atributos-container">
+                        <h3 class="titulo-atributos">ATRIBUTOS</h3>
+                        <div class="atributos-lista">
+                            <div class="atributo-item">
+                                <span class="atributo-label">AGI</span>
+                                <div class="hexagono"><span>${dados.atributos.agi}</span></div>
+                            </div>
+                            <div class="atributo-item">
+                                <span class="atributo-label">FOR</span>
+                                <div class="hexagono"><span>${dados.atributos.for}</span></div>
+                            </div>
+                            <div class="atributo-item">
+                                <span class="atributo-label">INT</span>
+                                <div class="hexagono"><span>${dados.atributos.int}</span></div>
+                            </div>
+                            <div class="atributo-item">
+                                <span class="atributo-label">PRE</span>
+                                <div class="hexagono"><span>${dados.atributos.pre}</span></div>
+                            </div>
+                            <div class="atributo-item">
+                                <span class="atributo-label">VIG</span>
+                                <div class="hexagono"><span>${dados.atributos.vig}</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    ` 
+                    : '';
+
+                const vulnerabilidadeHTML = dados.vulnerabilidade 
+                    ? ` <div class="label">Fraqueza</div>
+                        <span class="tipo ${dados.vulnerabilidade.toLowerCase()}">${dados.vulnerabilidade}</span>`
+                    : ' <div class="label">Fraqueza</div> <span style="font-style: italic; color: #ccc;">Nenhuma</span>';
+                
+                const resistenciasHTML = dados.resistencias && dados.resistencias.length > 0
+                    ? dados.resistencias.map(r => `
+                        <div>
+                            <span >${r.nome}</span>: ${r.valor}
+                        </div>
+                        `).join('')
+                    : '<div style="font-style: italic; color: #ccc; margin-top: 5px;">Nenhuma</div>';
+                
+                const enigmaHTML = dados.enigma_medo 
+                    ? `<div class="enigma-medo">
+                            <strong id="Enigma">Enigma de Medo:</strong> ${dados.enigma_medo}
+                        </div><br>` 
+                    : '';
+
+                // Mapeia as ações replicando o estilo do livro do Ordem Paranormal
+                const acoesHTML = dados.acoes && dados.acoes.length > 0 
+                    ? dados.acoes.map(a => {
+                        // Mapeia o símbolo
+                        let icone = "◆"; // Padrão
+                        const duracao = a.duracao ? a.duracao.toLowerCase() : "";
+                        if (duracao === "movimento" || "completa" || "reação" || "livre") icone = "❖";
+
+                        // DURAÇÃO e TIPO (Ex: PADRÃO ◆ AGREDIR)
+                        const tipoAcao = a.tipo_acao ? a.tipo_acao.toUpperCase() : "HABILIDADE";
+                        const linha1 = `${duracao.toUpperCase()} ${icone} ${tipoAcao}`;
+
+                        //  NOME, Alcance e Crítico (Ex: GARRAS Corpo a corpo x2)
+                        const alcanceStr = a.alcance ? a.alcance.charAt(0).toUpperCase() + a.alcance.slice(1) : '';
+                        const criticoStr = a.critico ? `x${a.critico}` : '';
+                        const complementos = [alcanceStr, criticoStr].filter(Boolean).join(' ');
+                        
+                        // TESTE e DANO (Ex: TESTE 5d20+40 | DANO 4d10+30 Sangue)
+                        let testeStr = a.teste ? `<strong>TESTE</strong> ${a.teste.qtd_dado}d20+${a.teste.bonus}` : '';
+                        let danoStr = '';
+                        
+                        if (a.dano && (a.dano.qtd_dado !== undefined || a.dano.bonus !== undefined)) {
+                            // Verifica se tem dados para rolar (ex: 4d10+30) ou se é dano fixo (ex: 40)
+                            if (a.dano.qtd_dado > 0) {
+                                danoStr = `<strong>DANO</strong> ${a.dano.qtd_dado}${a.dano.tipo_dado}+${a.dano.bonus} <span style="text-transform: capitalize;">${a.dano.tipo_dano || ''}</span>`.trim();
+                            } else if (a.dano.bonus > 0) {
+                                danoStr = `<strong>DANO</strong> ${a.dano.bonus} <span style="text-transform: capitalize;">${a.dano.tipo_dano || ''}</span>`.trim();
+                            }
+                        }
+                        const linhaRolagens = [testeStr, danoStr].filter(Boolean).join(' | ');
+
+                        // HTML final do Ataque
+                        return `
+                            <div class="acao-item">
+
+                                <div>${linha1}</div>
+
+                                <div class="corpo-item">
+                                    <div>
+                                        <strong>${a.nome}</strong> 
+                                        ${complementos ? `<span>| ${complementos}</span>` : ''}
+                                    </div>
+                                    ${linhaRolagens ? `<div>${linhaRolagens}</div>` : ''}
+                                    ${a.descricao ? `<div>${a.descricao}</div>` : ''}
+                                </div>
+                                
+                            </div>
+                        `;
+                    }).join('') 
+                    : '<div class="erro">Nenhuma ação cadastrada</div>';
 
                 div.innerHTML = `
                     <div class="card">
                         <h2 class="nomeAmeaca">${dados.nome}</h2>
                         <div class="tipos">${tiposHTML}</div>
                         <br>
-                        <div class="descricao">${dados.descricao}</div>
+                        <div id="img-texto">
+                            <img src="${dados.img}" alt="Imagem de ${dados.nome}" class="imagem-criatura" />
+                            <div class="descricao">${dados.descricao}</div>
+                        </div>
+                        <br>
+
+                        ${atributosHTML}
+
                         <br>
                         <div class='info-grid'>
                             <div class='info-item'>
@@ -81,18 +183,44 @@
                             <div class='info-item'>
                                 <div class='label'>PV Total</div>
                                 <div class='value'>${dados.pontos_vida.total}</div>
+                                <div class='label2'>Machucado</div>
+                                <div class='value'>${dados.pontos_vida.machucado}</div>
                             </div>
                             <div class='info-item'>
                                 <div class='label'>Defesa</div>
                                 <div class='value'>${dados.defesa}</div>
                             </div>
+                            <div class='info-item'>
+                                <div class='label'>Deslocamento</div>
+                                <div class='value'>${dados.deslocamento}m</div>
+                            </div>
+                            
+                        </div>
+
+                        <div class='info-grid-defesa'>
+                            <div class='info-item'>
+                                <div class='label'>Resistências</div>
+                                <div class='value' style="font-size: medium;">
+                                    ${resistenciasHTML}
+                                </div>
+                            </div>
+
+                            <div class='info-item'>
+                                ${vulnerabilidadeHTML}
+                            </div>
                         </div>
                         <br>
-                        <div class='habilidades'>
-                            <strong>Ações:</strong>
-                            ${acoesNomes}
-                        </div>
+
+                        ${enigmaHTML}
+
                     </div>
+
+                    <div class="card">
+                        <div class='habilidades'>
+                            <h3>AÇÕES</h3>
+                            ${acoesHTML}
+                    </div>
+</div>
                 `;
                 
             } catch (e) {

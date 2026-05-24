@@ -58,7 +58,7 @@ router.get('/nome/:nome', (req, res) => {
 
 // POST - Criar nova ameaça
 router.post('/', (req, res) => {
-    const { nome, descricao, enigma_medo, VD, tipos, categoria, tamanho, presença_perturbadora, 
+    const { nome, descricao, enigma_medo, img, VD, tipos, categoria, tamanho, presença_perturbadora, 
         sentidos, defesa, pontos_vida, resistencias, vulnerabilidade, 
         atributos, deslocamento, acoes, passivas } = req.body;
 
@@ -73,6 +73,7 @@ router.post('/', (req, res) => {
         nome,
         descricao,
         enigma_medo,
+        img,
         VD,
         tipos,
         categoria,
@@ -98,7 +99,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => { // Rota PUT (modificar) algum ameaça por ID
     const id = Number(req.params.id);
 
-    const { nome, descricao, enigma_medo, VD, tipos, categoria, tamanho, presença_perturbadora, sentidos, defesa,
+    const { nome, descricao, enigma_medo, img, VD, tipos, categoria, tamanho, presença_perturbadora, sentidos, defesa,
             pontos_vida, resistencias, vulnerabilidade, atributos, deslocamento, acoes, passivas 
         } = req.body;
 
@@ -112,7 +113,7 @@ router.put('/:id', (req, res) => { // Rota PUT (modificar) algum ameaça por ID
         });
     };
 
-    ameacas[index] = { id, nome, descricao, enigma_medo, VD, tipos, categoria, tamanho, presença_perturbadora, 
+    ameacas[index] = { id, nome, descricao, enigma_medo, img, VD, tipos, categoria, tamanho, presença_perturbadora, 
         sentidos, defesa, pontos_vida, resistencias, vulnerabilidade, atributos, deslocamento, acoes, passivas  };
 
     writeData(ameacas)

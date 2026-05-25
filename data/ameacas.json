@@ -151,6 +151,17 @@
         "nome": "medo"
       }
     ],
+    "presenca_perturbadora": {
+      "dt": 45,
+      "dano": [
+        {
+          "qtd_dado": 9,
+          "tipo_dado": "d8",
+          "tipo_dano": "mental"
+        }
+      ],
+      "imunidade_percentual": 30
+    },
     "categoria": "criatura",
     "tamanho": "colossal",
     "defesa": 58,
@@ -158,6 +169,33 @@
       "total": 1200,
       "machucado": 600
     },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 4,
+        "bonus": 20
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 4,
+        "bonus": 20
+      },
+      {
+        "nome": "fortitude",
+        "qtd_dado": 5,
+        "bonus": 30
+      },
+      {
+        "nome": "reflexos",
+        "qtd_dado": 4,
+        "bonus": 25
+      },
+      {
+        "nome": "vontade",
+        "qtd_dado": 4,
+        "bonus": 20
+      }
+    ],
     "resistencias": [
       {
         "nome": "dano",

@@ -57,6 +57,15 @@
                     .map(t => `<span class="tipo ${t.nome.toLowerCase()}"> ${t.nome}</span>`)
                     .join('');
 
+                const presencaHTML = dados.presenca_perturbadora 
+                    ? `<div class="bloco-presenca">
+                        <span class="faixa-texto">PRESENÇA PERTURBADORA</span>
+                        <div class="faixa-conteudo">
+                            DT ${dados.presenca_perturbadora.dt} ♦ ${dados.presenca_perturbadora.dano[0].qtd_dado}${dados.presenca_perturbadora.dano[0].tipo_dado} <span style="text-transform: lowercase;">${dados.presenca_perturbadora.dano[0].tipo_dano}</span>
+                        </div>
+                    </div><br>` 
+                    : '';
+
                 const atributosHTML = dados.atributos 
                     ? `
                     <div class="atributos-container">
@@ -98,12 +107,24 @@
                             <span >${r.nome}</span>: ${r.valor}
                         </div>
                         `).join('')
-                    : '<div style="font-style: italic; color: #ccc; margin-top: 5px;">Nenhuma</div>';
+                    : '<div class="null">Nenhuma</div>';
                 
                 const enigmaHTML = dados.enigma_medo 
                     ? `<div class="enigma-medo">
                             <strong id="Enigma">Enigma de Medo:</strong> ${dados.enigma_medo}
                         </div><br>` 
+                    : '';
+                
+                const periciasHTML = dados.pericias && dados.pericias.length > 0
+                    ? `<div class="pericias">
+                        <h3>PERÍCIAS</h3>
+                        ${dados.pericias.map(r => `
+                            <div class="pericias-item">
+                                <strong>${r.nome.toUpperCase()}</strong> 
+                                <p class="pericias-dado">${r.qtd_dado}d20+${r.bonus}<p>
+                            </div>
+                        `).join('')}
+                    </div>`
                     : '';
 
                 // Mapeia as ações replicando o estilo do livro do Ordem Paranormal
@@ -112,7 +133,9 @@
                         // Mapeia o símbolo
                         let icone = "◆"; // Padrão
                         const duracao = a.duracao ? a.duracao.toLowerCase() : "";
-                        if (duracao === "movimento" || "completa" || "reação" || "livre") icone = "❖";
+                        if (["movimento", "completa", "reação", "livre"].includes(duracao)) {
+                            icone = "❖";
+                        }
 
                         // DURAÇÃO e TIPO (Ex: PADRÃO ◆ AGREDIR)
                         const tipoAcao = a.tipo_acao ? a.tipo_acao.toUpperCase() : "HABILIDADE";
@@ -149,7 +172,7 @@
                                         ${complementos ? `<span>| ${complementos}</span>` : ''}
                                     </div>
                                     ${linhaRolagens ? `<div>${linhaRolagens}</div>` : ''}
-                                    ${a.descricao ? `<div>${a.descricao}</div>` : ''}
+                                    ${a.descricao ? `<div id="acao-descricao">${a.descricao}</div>` : ''}
                                 </div>
                                 
                             </div>
@@ -167,6 +190,8 @@
                             <div class="descricao">${dados.descricao}</div>
                         </div>
                         <br>
+
+                        ${presencaHTML}
 
                         ${atributosHTML}
 
@@ -212,6 +237,8 @@
                         <br>
 
                         ${enigmaHTML}
+
+                        ${periciasHTML}
 
                     </div>
 

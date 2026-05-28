@@ -139,7 +139,7 @@
     "nome": "Aniquilação",
     "descricao": "A maior criatura já registrada na história da Realidade. Apenas relatos de civilizações distantes foram encontrados como evidência desse ser que só pode ser descrito como um apocalipse paranormal",
     "enigma_medo": "O Enigma de Medo da Aniquilação é desconhecido. Quando ele for resolvido, a Aniquilação perde sua resistência a dano e sua habilidade Tempestade de Espinhos.",
-    "img":"img/Aniquilacao.png",
+    "img": "img/Aniquilacao.png",
     "VD": 380,
     "tipos": [
       {
@@ -348,6 +348,1604 @@
       {
         "nome": "percepção às cegas",
         "descricao": null
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "nome": "Carente",
+    "descricao": "A criatura mais famosa do escritor de terror Daniel Hartmann, o carente é uma manifestação paranormal originada de uma história de terror que se tornou popular no mundo todo. É uma criatura nascida da inveja de um ser que nunca sentiu amor e, por isso, busca devorar os órgãos de pessoas que já foram mães para consumir o amor que nunca recebeu.",
+    "enigma_medo": null,
+    "img": "img/Carente.png",
+    "VD": 300,
+    "categoria": "criatura",
+    "tamanho": "grande",
+    "vulnerabilidade": "morte",
+    "deslocamento": 12,
+    "defesa": 40,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "sangue"
+      },
+      {
+        "principal": false,
+        "nome": "morte"
+      }
+    ],
+    "presenca_perturbadora": {
+      "dt": 35,
+      "dano": [
+        {
+          "qtd_dado": 7,
+          "tipo_dado": "d8",
+          "tipo_dano": "mental"
+        }
+      ],
+      "imunidade_percentual": 90
+    },
+    "atributos": {
+      "agi": 4,
+      "for": 4,
+      "int": 2,
+      "pre": 3,
+      "vig": 4
+    },
+    "pontos_vida": {
+      "total": 700,
+      "machucado": 350
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 3,
+        "bonus": 10
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 4,
+        "bonus": 15
+      },
+      {
+        "nome": "fortitude",
+        "qtd_dado": 4,
+        "bonus": 25
+      },
+      {
+        "nome": "reflexos",
+        "qtd_dado": 4,
+        "bonus": 25
+      },
+      {
+        "nome": "vontade",
+        "qtd_dado": 3,
+        "bonus": 15
+      },
+      {
+        "nome": "atletismo",
+        "qtd_dado": 4,
+        "bonus": 20
+      },
+      {
+        "nome": "enganação",
+        "qtd_dado": 3,
+        "bonus": 15
+      }
+    ],
+    "resistencias": [
+      {
+        "nome": "balístico",
+        "valor": 20
+      },
+      {
+        "nome": "impacto",
+        "valor": 20
+      },
+      {
+        "nome": "perfuração",
+        "valor": 20
+      },
+      {
+        "nome": "sangue",
+        "valor": 20
+      }
+    ],
+    "acoes": [
+      {
+        "nome": "garras de sangue",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 4,
+          "bonus": 35
+        },
+        "dano": {
+          "qtd_dado": 2,
+          "tipo_dado": "d8",
+          "bonus": 20,
+          "tipo_dano": "sangue"
+        },
+        "descricao": "Ataque corpo a corpo x2"
+      },
+      {
+        "nome": "ferrão de sangue",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 4,
+          "bonus": 35
+        },
+        "dano": {
+          "qtd_dado": 2,
+          "tipo_dado": "d12",
+          "bonus": 20,
+          "tipo_dano": "sangue"
+        },
+        "descricao": "Ataque corpo a corpo"
+      },
+      {
+        "nome": "tentáculo",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 4,
+          "bonus": 35
+        },
+        "dano": {
+          "qtd_dado": 2,
+          "tipo_dado": "d8",
+          "bonus": 20,
+          "tipo_dano": "sangue"
+        },
+        "descricao": "Ataque corpo a corpo"
+      },
+      {
+        "nome": "forma infantil",
+        "duracao": "movimento",
+        "tipo_acao": "habilidade",
+        "alcance": "pessoal",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "O carente se contorce de volta para o corpo da pequena criança para passar em espaços pequenos, se retraindo e expandindo quando achar necessário. Além disso, o carente não consegue abrir a primeira porta para entrar em um lugar. Uma vez que essa porta é aberta e ele deixa de estar na forma infantil, pode ignorar essa restrição."
+      },
+      {
+        "nome": "rasteira de tentáculo",
+        "duracao": "reação",
+        "tipo_acao": "ataque",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "Uma vez por rodada, quando fica adjacente a dois ou mais seres, o carente faz um ataque de tentáculo contra um deles. Se o carente acertar o ataque, a vítima fica caída e é empurrada 6m para longe dele."
+      },
+      {
+        "nome": "sugada mortal",
+        "duracao": "livre",
+        "tipo_acao": "habilidade",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "Usando seu ferrão, o carente consegue sugar fluidos e apodrecer os órgãos internos. Um ser atingido pelo ferrão de sangue fica debilitado e enjoado até o fim da cena (Fortitude DT 35 evita)."
+      },
+      {
+        "nome": "Você é minha mamãe?",
+        "duracao": "movimento",
+        "tipo_acao": "habilidade",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "O carente usa a parte que simula o corpo de uma criança para abraçar um ser adjacente, que fica paralisado até ser solto (Reflexos DT 25 evita). O carente pode manter o abraço indefinidamente, mas será forçado a soltar o alvo se sofrer dano de Energia."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "percepção às cegas",
+        "descricao": null
+      },
+      {
+        "nome": "carência",
+        "descricao": "Qualquer ser que já esteve envolvido em uma gestação recebe +1d20 em ataques contra o carente, porém o carente também recebe +1d20 em ataques contra esse ser."
+      },
+      {
+        "nome": "regeneração de sangue",
+        "descricao": "O carente possui Cura Acelerada 20. Se o carente ficar unconscious ou sofrer dano de Energia, esta habilidade deixa de funcionar até o fim da cena."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "nome": "Dama de Sangue",
+    "descricao": "Uma criatura grotesca que nasce a partir de um corpo humano partido no meio, com os órgãos se misturando a plantas para dar origem a sete tentáculos com flores e espinhos, além de outro tentáculo maior, central, com uma grande flor dentada. Uma dama de sangue é uma criatura nefasta que manifesta diversas habilidades paranormais.",
+    "enigma_medo": "A dama de sangue é uma criatura poderosa, invocada através de um ritual que envolve o sacrifício de sete pessoas para o desabrochar de sete flores. Porém, cada flor possui uma fraqueza, conforme descrito nas habilidades ao lado.",
+    "img": "img/Dama_de_Sangue.png",
+    "VD": 60,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "sangue"
+      },
+      {
+        "principal": false,
+        "nome": "medo"
+      },
+      {
+        "principal": false,
+        "nome": "morte"
+      }
+    ],
+    "categoria": "criatura",
+    "tamanho": "enorme",
+    "defesa": 20,
+    "pontos_vida": {
+      "total": 105,
+      "machucado": 52
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 2,
+        "bonus": 10
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 2,
+        "bonus": 0
+      },
+      {
+        "nome": "fortitude",
+        "qtd_dado": 2,
+        "bonus": 10
+      },
+      {
+        "nome": "reflexos",
+        "qtd_dado": 2,
+        "bonus": 5
+      },
+      {
+        "nome": "vontade",
+        "qtd_dado": 2,
+        "bonus": 0
+      }
+    ],
+    "resistencias": [
+      {
+        "nome": "balístico",
+        "valor": 10
+      },
+      {
+        "nome": "impacto",
+        "valor": 10
+      },
+      {
+        "nome": "perfuração",
+        "valor": 10
+      },
+      {
+        "nome": "sangue",
+        "valor": 20
+      }
+    ],
+    "vulnerabilidade": "morte",
+    "atributos": {
+      "agi": 2,
+      "for": 3,
+      "int": 1,
+      "pre": 2,
+      "vig": 2
+    },
+    "deslocamento": 12,
+    "acoes": [
+      {
+        "nome": "tentáculo",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 3,
+          "bonus": 10
+        },
+        "dano": {
+          "qtd_dado": 2,
+          "tipo_dado": "d6",
+          "bonus": 5,
+          "tipo_dano": "impacto"
+        },
+        "descricao": "Ataque corpo a corpo x2"
+      },
+      {
+        "nome": "arremessar (flor rosa)",
+        "duracao": "movimento",
+        "tipo_acao": "habilidade",
+        "alcance": "curto",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "A dama de sangue ergue um personagem em alcance curto e o arremessa a um ponto a sua escolha também em alcance curto. O personagem sofre 2d6 pontos de dano de impacto e fica caído (Reflexos DT 15 evita todo o efeito). A flor rosa murcha se a dama de sangue entrar em contato com fertilizante. Isso faz a dama perder esta habilidade e sofrer -1d20 em Luta."
+      },
+      {
+        "nome": "chuva de ácido (flor vermelha)",
+        "duracao": "movimento",
+        "tipo_acao": "habilidade",
+        "alcance": "curto",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "A dama de sangue espirra ácido que derrete carne e corrói metal. Todos os personagens em alcance curto sofrem 4d4 pontos de dano químico (Fortitude DT 15 reduz à metade). A flor vermelha murcha se a dama de sangue entrar em contato com agrotóxico. Isso faz a dama perder esta habilidade e reduz suas resistências a dano em 5."
+      },
+      {
+        "nome": "espinhos (flor amarela)",
+        "duracao": "movimento",
+        "tipo_acao": "habilidade",
+        "alcance": "médio",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "A dama dispara espinhos em até três alvos em alcance médio. Cada alvo sofre 2d8 pontos de dano de perfuração (Reflexos DT 15 reduz à metade). A flor amarela murcha se a dama de sangue sofrer 10 pontos de dano de fogo de um único efeito. Isso faz a dama perder esta habilidade e sofrer -1d20 em testes de Reflexos."
+      },
+      {
+        "nome": "grito devastador (flor roxa)",
+        "duracao": "movimento",
+        "tipo_acao": "habilidade",
+        "alcance": "curto",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "A dama emite um grito agudo que afeta a mente e causa confusão. Todos os personagens em alcance curto ficam confusos (Vontade DT 15 evita). Um personagem que falhe no teste pode repeti-lo no final do seu turno. A flor roxa murcha se a dama de sangue entrar em contato com o bulbo de bravo purpulis, uma planta roxa que cresce em algumas pedras. Isso faz a dama perder esta habilidade e sofrer -1d20 em testes de Vontade."
+      },
+      {
+        "nome": "miasma fétido (flor azul)",
+        "duracao": "padrão",
+        "tipo_acao": "habilidade",
+        "alcance": "curto",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "A dama de sangue expele um miasma fétido que contamina o ar. Todos os personagens em alcance curto ficam enjoados por 1d4+1 rodadas (Fortitude DT 15 reduz à 1 rodada). A flor azul murcha se a dama de sangue sofrer dano de eletricidade ou Energia. Isso faz a dama perder esta habilidade e reduz seu deslocamento em 6m."
+      },
+      {
+        "nome": "prisão de tentáculos (flor verde)",
+        "duracao": "padrão",
+        "tipo_acao": "habilidade",
+        "alcance": "curto",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "La criatura penetra o solo com seus tentáculos e escolhe um personagem em alcance curto. Esse personagem fica agarrado até que os tentáculos sejam destruídos (os tentáculos são acertados automaticamente e tem 20 PV). A flor verde murcha se for molhada em água corrente. Isso faz a dama perder esta habilidade e reduz sua Defesa em 5."
+      },
+      {
+        "nome": "visão macabra (flor laranja)",
+        "duracao": "movimento",
+        "tipo_acao": "habilidade",
+        "alcance": "médio",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "O movimento hipnotizante da flor faz com que o personagem tenha delírios de imagens macabras e perturbadas. Todos os personagens em alcance médio sofrem 1d6 pontos de dano Mental (Vontade DT 15 reduz à metade). A flor laranja murcha se a dama de sangue sofrer 10 pontos de dano de corte de um único efeito. Isso faz a dama perder esta habilidade e reduz seus PV totais em 20."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "percepção às cegas",
+        "descricao": null
+      },
+      {
+        "nome": "consumir",
+        "descricao": "Quando invocada, a dama de sangue não possui as habilidades da coluna ao lado. Sempre que consome um corpo, recebe uma das habilidades, na ordem da ficha (ou seja, ganha primeiro Arremessar, depois Chuva de Ácido e assim por diante). Para consumir um corpo, a dama de sangue precisa estar adjacente ao cadáver e gastar uma ação padrão. No começo de seu turno, se não tiver consumido sete corpos, a dama de sangue irá utilizar suas ações para se deslocar na direção de um corpo e consumi-lo. Assim que tiver consumido sete corpos, ela pode agir normalmente."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "nome": "Enpap-X",
+    "descricao": "Originada de uma lenda perdida da antiga Suméria, a aberração “enpap-X” surgiu da dor e tortura de um prisioneiro de guerra que era obrigado a marcar em sua pele os feitos terriveis cometidos pelo seu soberano.",
+    "enigma_medo": null,
+    "img": "img/Enpap_X.png",
+    "VD": 180,
+    "categoria": "criatura",
+    "tamanho": "grande",
+    "vulnerabilidade": "morte",
+    "deslocamento": 12,
+    "defesa": 36,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "sangue"
+      },
+      {
+        "principal": false,
+        "nome": "conhecimento"
+      }
+    ],
+    "presenca_perturbadora": {
+      "dt": 25,
+      "dano": [
+        {
+          "qtd_dado": 6,
+          "tipo_dado": "d6",
+          "tipo_dano": "mental"
+        }
+      ],
+      "imunidade_percentual": 60
+    },
+    "atributos": {
+      "agi": 2,
+      "for": 4,
+      "int": 1,
+      "pre": 2,
+      "vig": 3
+    },
+    "pontos_vida": {
+      "total": 360,
+      "machucado": 180
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 2,
+        "bonus": 10
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 2,
+        "bonus": 10
+      },
+      {
+        "nome": "fortitude",
+        "qtd_dado": 3,
+        "bonus": 15
+      },
+      {
+        "nome": "reflexos",
+        "qtd_dado": 2,
+        "bonus": 15
+      },
+      {
+        "nome": "vontade",
+        "qtd_dado": 2,
+        "bonus": 10
+      }
+    ],
+    "resistencias": [
+      {
+        "nome": "balístico",
+        "valor": 10
+      },
+      {
+        "nome": "impacto",
+        "valor": 10
+      },
+      {
+        "nome": "perfuração",
+        "valor": 10
+      },
+      {
+        "nome": "sangue",
+        "valor": 20
+      }
+    ],
+    "acoes": [
+      {
+        "nome": "socão",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 4,
+          "bonus": 20
+        },
+        "dano": {
+          "qtd_dado": 2,
+          "tipo_dado": "d10",
+          "bonus": 10,
+          "tipo_dano": "impacto"
+        },
+        "descricao": "Ataque corpo a corpo x4"
+      },
+      {
+        "nome": "correntes",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "curto",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 2,
+          "bonus": 15
+        },
+        "dano": {
+          "qtd_dado": 2,
+          "tipo_dado": "d8",
+          "bonus": 10,
+          "tipo_dano": "impacto"
+        },
+        "descricao": "Ataque à distância x3"
+      },
+      {
+        "nome": "acorrentar",
+        "duracao": "livre",
+        "tipo_acao": "habilidade",
+        "alcance": "curto",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "Se o enpap-X de sangue acertar um ataque de correntes em um personagem Médio ou menor, pode tentar agarrar o alvo à distância (teste 2d20+17). No começo do seu turno, o Enpap-X estrangula cada personagem agarrado desta forma, causando 4d6 pontos de dano de impacto. O Enpap-X pode manter até dois personagens agarrados simultaneamente."
+      },
+      {
+        "nome": "forma desencadeada",
+        "duracao": "reação",
+        "tipo_acao": "habilidade",
+        "alcance": "pessoal",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "Quando faz um acerto crítico com um socão ou com uma corrente, o Enpap-X pode derrubar o alvo ou empurrá-lo 3m na direção oposta."
+      },
+      {
+        "nome": "crescer",
+        "duracao": "reação",
+        "tipo_acao": "habilidade",
+        "alcance": "pessoal",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "Movido pelo Sangue incontrolável, o Enpap-X desenvolve força conforme desfere seus golpes. Sempre que acertar um personagem com seu socão, o Enpap-X recebe um bônus cumulativo de +1d6 em suas próximas rolagens de dano até o fim do turno. Ou seja, se acertar o primeiro socão, no segundo recebe +1d6 de dano. Se acertar o segundo, no terceiro recebe +2d6. E se acertar o terceiro, no quarto socão recebe +3d6."
+      },
+      {
+        "nome": "marcas do terror",
+        "duracao": "movimento",
+        "tipo_acao": "habilidade",
+        "alcance": "curto",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "O Enpap-X faz com que as marcas em seu corpo brilhem com uma luz dourada, revelando as atrocidades eternizadas em sua pele. Todos os personagens em alcance curto do Enpap-X sofrem 4d6 pontos de dano mental (Vontade DT 25 reduz à metade). Um personagem que passe no teste de resistência fica imune a esta habilidade até o final da cena."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "percepção às cegas",
+        "descricao": null
+      },
+      {
+        "nome": "transformação",
+        "descricao": "O enpap-X começa o combate como um existido comum, usando todas as estatísticas da ficha da página 240. Quando ele é reduzido a 0 PV, porém, em vez de morrer, se transforma: passa a usar a ficha desta página (inclusive gerando o efeito de sua presença perturbadora) e recupera todos os seus PV, ficando com 360 PV."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "nome": "Kerberos",
+    "descricao": "O cão de três cabeças, o demônio do poço, o guardião do portão do inferno. Existem poucos relatos daqueles que encontraram um kerberos dentro da Realidade. Uma besta enorme, com mais de três metros de altura e sete metros de comprimento, seis enormes patas, uma cauda, espinhos e veias saltadas por toda a sua pele vermelha carnosa e gosmenta, e três enormes cabeças com bocas asquerosas e vis, uma diferente da outra.",
+    "enigma_medo": null,
+    "img": "img/Kerberos.png",
+    "VD": 340,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "sangue"
+      }
+    ],
+    "categoria": "criatura",
+    "tamanho": "enorme",
+    "defesa": 46,
+    "pontos_vida": {
+      "total": 1150,
+      "machucado": 575
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 3,
+        "bonus": 20
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 4,
+        "bonus": 15
+      },
+      {
+        "nome": "fortitude",
+        "qtd_dado": 5,
+        "bonus": 25
+      },
+      {
+        "nome": "reflexos",
+        "qtd_dado": 4,
+        "bonus": 20
+      },
+      {
+        "nome": "vontade",
+        "qtd_dado": 3,
+        "bonus": 15
+      },
+      {
+        "nome": "atletismo",
+        "qtd_dado": 5,
+        "bonus": 25
+      }
+    ],
+    "resistencias": [
+      {
+        "nome": "balístico",
+        "valor": 20
+      },
+      {
+        "nome": "impacto",
+        "valor": 20
+      },
+      {
+        "nome": "perfuração",
+        "valor": 20
+      },
+      {
+        "nome": "sangue",
+        "valor": 20
+      }
+    ],
+    "vulnerabilidade": "morte",
+    "atributos": {
+      "agi": 4,
+      "for": 5,
+      "int": 0,
+      "pre": 3,
+      "vig": 5
+    },
+    "deslocamento": 18,
+    "acoes": [
+      {
+        "nome": "mordida",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 5,
+          "bonus": 40
+        },
+        "dano": {
+          "qtd_dado": 4,
+          "tipo_dado": "d12",
+          "bonus": 30,
+          "tipo_dano": "sangue"
+        },
+        "descricao": "Ataque corpo a corpo"
+      },
+      {
+        "nome": "disparo de espinhos",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "médio",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 4,
+          "bonus": 35
+        },
+        "dano": {
+          "qtd_dado": 4,
+          "tipo_dado": "d8",
+          "bonus": 20,
+          "tipo_dano": "sangue"
+        },
+        "descricao": "Ataque à distância x3"
+      },
+      {
+        "nome": "devorar",
+        "duracao": "livre",
+        "tipo_acao": "habilidade",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "Uma vez por cena, quando reduz os PV de um personagem a 0 com sua mordida, o kerberos pode devorá-lo, matando-o instantaneamente e recuperando PV iguais à metade dos PV totais da vítima. A vítima tem direito a um teste de Fortitude (DT 40) para evitar o efeito."
+      },
+      {
+        "nome": "derrubar e devorar",
+        "duracao": "completa",
+        "tipo_acao": "habilidade",
+        "alcance": "curto",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 5,
+          "bonus": 45
+        },
+        "dano": {},
+        "descricao": "O kerberos usa a manobra derrubar em um personagem a até 3m (teste 5d20+45). Se vencer o teste de manobra, o kerberos desfere três ataques de mordida contra o personagem. O dano destes ataques aumenta para 4d12+40."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "percepção às cegas",
+        "descricao": null
+      },
+      {
+        "nome": "ataque flexível",
+        "descricao": "O kerberos é movido pela sede de sangue e o desejo de matar. Ele pode executar até quatro ataques por rodada, combinando ataques corpo a corpo e à distância. Entretanto, ele nunca pode executar o mesmo ataque mais de três vezes na mesma rodada."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "nome": "Minotauro",
+    "descricao": "A forma de um animal enorme, furioso e bípede com mais de três metros, infectado com pústulas nojentas de Sangue e veias pulsantes por um lado inteiro de seu corpo, o minotauro é originada das lendas da mitologia grega sobre um monstro terrível que habita labirintos.",
+    "enigma_medo": null,
+    "img": "img/Minotauro.png",
+    "VD": 280,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "sangue"
+      }
+    ],
+    "categoria": "criatura",
+    "tamanho": "grande",
+    "defesa": 44,
+    "pontos_vida": {
+      "total": 750,
+      "machucado": 375
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 3,
+        "bonus": 20
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 4,
+        "bonus": 15
+      },
+      {
+        "nome": "fortitude",
+        "qtd_dado": 5,
+        "bonus": 20
+      },
+      {
+        "nome": "reflexos",
+        "qtd_dado": 4,
+        "bonus": 15
+      },
+      {
+        "nome": "vontade",
+        "qtd_dado": 3,
+        "bonus": 10
+      },
+      {
+        "nome": "atletismo",
+        "qtd_dado": 5,
+        "bonus": 20
+      }
+    ],
+    "resistencias": [
+      {
+        "nome": "balístico",
+        "valor": 20
+      },
+      {
+        "nome": "impacto",
+        "valor": 20
+      },
+      {
+        "nome": "perfuração",
+        "valor": 20
+      },
+      {
+        "nome": "sangue",
+        "valor": 20
+      }
+    ],
+    "vulnerabilidade": "morte",
+    "atributos": {
+      "agi": 4,
+      "for": 5,
+      "int": 1,
+      "pre": 3,
+      "vig": 5
+    },
+    "deslocamento": 12,
+    "acoes": [
+      {
+        "nome": "chifres",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 5,
+          "bonus": 30
+        },
+        "dano": {
+          "qtd_dado": 6,
+          "tipo_dado": "d12",
+          "bonus": 20,
+          "tipo_dano": "perfuração"
+        },
+        "descricao": "Ataque corpo a corpo"
+      },
+      {
+        "nome": "machado",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 5,
+          "bonus": 32
+        },
+        "dano": {
+          "qtd_dado": 4,
+          "tipo_dado": "d12",
+          "bonus": 20,
+          "tipo_dano": "corte"
+        },
+        "descricao": "Ataque corpo a corpo x2"
+      },
+      {
+        "nome": "cravar chifres",
+        "duracao": "livre",
+        "tipo_acao": "habilidade",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "Se fizer uma investida com seus chifres e acertar o ataque, o minotauro crava seus chifres no alvo, que fica agarrado. Enquanto mantém um ser agarrado dessa forma o minotauro não pode atacar com seus chifres. Porém, no final de cada turno da vítima na qual ela ainda esteja agarrada pelos chifres, ela sofre 4d12+20 pontos de dano de Sangue."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "percepção às cegas",
+        "descricao": null
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "nome": "Mulher Afogada",
+    "descricao": "Uma lenda urbana que se popularizou entre crianças graças a uma história usada por pais para evitar desperdício de água, mas que tomou proporções terríveis após um famoso escritor adaptar a lenda em um conto de terror.",
+    "enigma_medo": "Quando a mulher afogada assombra um local, todas as fontes de água se tornam armadilhas potenciais: torneiras, canos, privadas, chuveiros... Tudo que estiver conectado a um sistema de um desses pontos, ela pode se manifestar em forma física com seu líquido de Sangue, agarrando esse personagem e tentando arrastá-lo para dentro dos canos onde o devorará lentamente. Tentar enfrentar a mulher afogada diretamente é inútil, já que ela consegue se mover livremente por dentro dos encanamentos e se recuperar de seus ferimentos caso seja atacada. A única maneira de derrotá-la é bloquear todas as saídas de água e fechar o registro hidráulico do local, e então abrir todas as torneiras, forçando a sua manifestação física e a deixando sem lugar para fugir caso esteja próxima de ser derrotada.",
+    "img": "img/Mulher_Afogada.png",
+    "VD": 140,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "sangue"
+      },
+      {
+        "principal": false,
+        "nome": "energia"
+      },
+      {
+        "principal": false,
+        "nome": "medo"
+      }
+    ],
+    "categoria": "criatura",
+    "tamanho": "grande",
+    "defesa": 28,
+    "pontos_vida": {
+      "total": 240,
+      "machucado": 120
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 2,
+        "bonus": 5
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 4,
+        "bonus": 10
+      },
+      {
+        "nome": "fortitude",
+        "qtd_dado": 3,
+        "bonus": 10
+      },
+      {
+        "nome": "reflexos",
+        "qtd_dado": 4,
+        "bonus": 10
+      },
+      {
+        "nome": "vontade",
+        "qtd_dado": 2,
+        "bonus": 5
+      }
+    ],
+    "resistencias": [
+      {
+        "nome": "balístico",
+        "valor": 10
+      },
+      {
+        "nome": "energia",
+        "valor": 10
+      },
+      {
+        "nome": "impacto",
+        "valor": 10
+      },
+      {
+        "nome": "perfuração",
+        "valor": 10
+      },
+      {
+        "nome": "sangue",
+        "valor": 20
+      }
+    ],
+    "vulnerabilidade": "morte",
+    "atributos": {
+      "agi": 4,
+      "for": 3,
+      "int": 2,
+      "pre": 2,
+      "vig": 3
+    },
+    "deslocamento": "9m | Forma líquida 36m",
+    "acoes": [
+      {
+        "nome": "mordida",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 3,
+          "bonus": 15
+        },
+        "dano": {
+          "qtd_dado": 4,
+          "tipo_dado": "d8",
+          "bonus": 8,
+          "tipo_dano": "perfuração"
+        },
+        "descricao": "Ataque corpo a corpo"
+      },
+      {
+        "nome": "garras",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 4,
+          "bonus": 15
+        },
+        "dano": {
+          "qtd_dado": 4,
+          "tipo_dado": "d6",
+          "bonus": 6,
+          "tipo_dano": "corte"
+        },
+        "descricao": "Ataque corpo a corpo x2"
+      },
+      {
+        "nome": "jato de sangue",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "curto",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 4,
+          "bonus": 10
+        },
+        "dano": {
+          "qtd_dado": 4,
+          "tipo_dado": "d8",
+          "bonus": 8,
+          "tipo_dano": "sangue"
+        },
+        "descricao": "Ataque à distância"
+      },
+      {
+        "nome": "sugar sangue",
+        "duracao": "movimento",
+        "tipo_acao": "habilidade",
+        "alcance": "adjacente",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "A mulher afogada devora o corpo de um personagem adjacente que tenha morrido nesta cena, recuperando 40 PV no processo."
+      },
+      {
+        "nome": "afogar em sangue",
+        "duracao": "padrão",
+        "tipo_acao": "habilidade",
+        "alcance": "curto",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "Ação da Forma de Sangue. A mulher afogada invade os orifícios do nariz e da boca de um personagem em alcance curto, afogando-o com Sangue. O personagem fica asfixiado. No início de cada um de seus turnos, pode fazer um teste de Fortitude (DT 24). Se passar, encerra a condição e faz a mulher afogada ser expelida na forma líquida para um espaço adjacente."
+      },
+      {
+        "nome": "arrancar sangue",
+        "duracao": "reação",
+        "tipo_acao": "habilidade",
+        "alcance": "pessoal",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "Ação da Forma de Sangue. Toda vez que a mulher afogada é arrancada de um corpo que ela esteja asfixiando com afogar em Sangue, ela carrega consigo parte do sangue da vítima, causando 6d6 pontos de dano de Sangue e deixando-a fraca."
+      },
+      {
+        "nome": "invadir órgãos",
+        "duracao": "movimento",
+        "tipo_acao": "habilidade",
+        "alcance": "pessoal",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "Ação da Forma de Sangue. A mulher afogada invade órgãos vitais de um personagem que ela esteja asfixiando com afogar em Sangue. O personagem sofre 6d6 pontos de dano de Sangue e fica enjoado."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "percepção às cegas",
+        "descricao": null
+      },
+      {
+        "nome": "forma de sangue",
+        "descricao": "Por padrão, a mulher afogada é encontrada na forma líquida de Sangue. Nesta forma, ela possui resistência a balístico, corte, impacto, perfuração e Sangue 20; deslocamento 36m e pode percorrer canos, frestas e orifícios, como qualquer líquido; e recebe as habilidades Afogar em Sangue, Arrancar Sangue e Invadir Órgãos. Ela perde esta habilidade quando é invocada em sua forma física (após seu Enigma de Medo ser desvendado)."
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "nome": "Titã de Sangue",
+    "descricao": "A maior versão já encontrada de um zumbi de sangue, o titã é uma criatura monstruosa com mais de quatro metros de altura. Uma massa corporal de carne e Sangue endurecida e musculosa, com veias saltadas ao redor de todo seu corpo e uma enorme boca com quatro gigantes quelíceras capazes de desfigurar permanentemente qualquer alvo, isto se este conseguir sair vivo de um de seus ataques brutais.",
+    "enigma_medo": null,
+    "img": "img/Tita_de_Sangue.png",
+    "VD": 220,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "sangue"
+      }
+    ],
+    "categoria": "criatura",
+    "tamanho": "colossal",
+    "defesa": 35,
+    "pontos_vida": {
+      "total": 550,
+      "machucado": 275
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 3,
+        "bonus": 15
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 2,
+        "bonus": 10
+      },
+      {
+        "nome": "fortitude",
+        "qtd_dado": 4,
+        "bonus": 15
+      },
+      {
+        "nome": "reflexos",
+        "qtd_dado": 2,
+        "bonus": 10
+      },
+      {
+        "nome": "vontade",
+        "qtd_dado": 2,
+        "bonus": 10
+      }
+    ],
+    "resistencias": [
+      {
+        "nome": "balístico",
+        "valor": 20
+      },
+      {
+        "nome": "impacto",
+        "valor": 20
+      },
+      {
+        "nome": "perfuração",
+        "valor": 20
+      },
+      {
+        "nome": "sangue",
+        "valor": 20
+      }
+    ],
+    "vulnerabilidade": "morte",
+    "atributos": {
+      "agi": 2,
+      "for": 5,
+      "int": 1,
+      "pre": 1,
+      "vig": 4
+    },
+    "deslocamento": 12,
+    "acoes": [
+      {
+        "nome": "mordida",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 5,
+          "bonus": 25
+        },
+        "dano": {
+          "qtd_dado": 4,
+          "tipo_dado": "d12",
+          "bonus": 10,
+          "tipo_dano": "perfuração"
+        },
+        "descricao": "Ataque corpo a corpo"
+      },
+      {
+        "nome": "garras",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 5,
+          "bonus": 25
+        },
+        "dano": {
+          "qtd_dado": 4,
+          "tipo_dado": "d8",
+          "bonus": 10,
+          "tipo_dano": "corte"
+        },
+        "descricao": "Ataque corpo a corpo x2"
+      },
+      {
+        "nome": "estraçalhar",
+        "duracao": "livre",
+        "tipo_acao": "habilidade",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "Se o titã acertar um ser com sua mordida, ele estraçalha o alvo, que sofre 4d12+10 pontos de dano de perfuração e fica sangrando até final da cena (Reflexos DT 30 reduz o dano à metade e evita a condição)."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "percepção às cegas",
+        "descricao": null
+      },
+      {
+        "nome": "sede de sangue",
+        "descricao": "Os ataques do titã causam +4d6 pontos de dano de Sangue em personagens que estejam machucados ou sangrando."
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "nome": "Zumbi de Sangue",
+    "descricao": "Quando cadáveres que morreram de forma muito brutal ou dolorosa são abandonados em uma área, servem como uma passagem para a entidade de Sangue devorá-los e tomar controle de sua forma física.",
+    "enigma_medo": null,
+    "img": "img/Zumbi_de_Sangue.png",
+    "VD": 20,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "sangue"
+      }
+    ],
+    "categoria": "criatura",
+    "tamanho": "médio",
+    "defesa": 17,
+    "pontos_vida": {
+      "total": 45,
+      "machucado": 22
+    },
+    "resistencias": [
+      {
+        "nome": "balístico",
+        "valor": 5
+      },
+      {
+        "nome": "impacto",
+        "valor": 5
+      },
+      {
+        "nome": "perfuração",
+        "valor": 5
+      },
+      {
+        "nome": "sangue",
+        "valor": 10
+      }
+    ],
+    "vulnerabilidade": "morte",
+    "atributos": {
+      "agi": 2,
+      "for": 2,
+      "int": 0,
+      "pre": 1,
+      "vig": 2
+    },
+    "deslocamento": 9,
+    "acoes": [
+      {
+        "nome": "garras",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 2,
+          "bonus": 5
+        },
+        "dano": {
+          "qtd_dado": 1,
+          "tipo_dado": "d6",
+          "bonus": 5,
+          "tipo_dano": "corte"
+        },
+        "descricao": "Ataque corpo a corpo x2"
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "percepção às cegas",
+        "descricao": null
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "nome": "Zumbi de Sangue Bestial",
+    "descricao": "Uma versão maior, mais forte e brutal de um zumbi de sangue, os bestiais costumam ser resultado de um cadáver que foi torturado brutalmente e sentiu dores indescritíveis antes de morrer, ou surgem do corpo de alguém com exposição paranormal elevada que foi devorado por completo pelo Sangue.",
+    "enigma_medo": null,
+    "img": "img/Zumbi_de_Sangue_Bestial.png",
+    "VD": 100,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "sangue"
+      }
+    ],
+    "categoria": "criatura",
+    "tamanho": "grande",
+    "defesa": 23,
+    "pontos_vida": {
+      "total": 200,
+      "machucado": 100
+    },
+    "resistencias": [
+      {
+        "nome": "balístico",
+        "valor": 5
+      },
+      {
+        "nome": "impacto",
+        "valor": 5
+      },
+      {
+        "nome": "perfuração",
+        "valor": 5
+      },
+      {
+        "nome": "sangue",
+        "valor": 10
+      }
+    ],
+    "vulnerabilidade": "morte",
+    "atributos": {
+      "agi": 2,
+      "for": 3,
+      "int": 0,
+      "pre": 2,
+      "vig": 3
+    },
+    "deslocamento": 12,
+    "acoes": [
+      {
+        "nome": "mordida de sangue",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 3,
+          "bonus": 15
+        },
+        "dano": {
+          "qtd_dado": 2,
+          "tipo_dado": "d10",
+          "bonus": 5,
+          "tipo_dano": "perfuração"
+        },
+        "descricao": "Ataque corpo a corpo"
+      },
+      {
+        "nome": "garras de sangue",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 3,
+          "bonus": 15
+        },
+        "dano": {
+          "qtd_dado": 2,
+          "tipo_dado": "d6",
+          "bonus": 5,
+          "tipo_dano": "corte"
+        },
+        "descricao": "Ataque corpo a corpo x2"
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "percepção às cegas",
+        "descricao": null
+      },
+      {
+        "nome": "furtivo e letal",
+        "descricao": "Quando ataca um personagem desprevenido, o zumbi de sangue bestial recebe +2d20 nos testes de ataque e, se acertar, cada ataque causa dois dados de dano adicional do mesmo tipo."
+      },
+      {
+        "nome": "instinto predatório",
+        "descricao": "O zumbi de sangue bestial não sofre penalidade em Furtividade por se mover seu deslocamento normal."
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "nome": "Diabo",
+    "descricao": "Você com certeza já ouviu falar desse ser conhecido por inúmeros nomes. O Príncipe do Ódio, o Imperador das Aberrações, o Portador do Trono ou o Sangue Encarnado. Aquele que rasga a Realidade com sua presença aterrorizante e devoradora. O Diabo é uma das manifestações do Outro Lado mais significativas na história da Realidade. Um ser que nunca foi derrotado, nunca foi controlado e nunca foi aprisionado, capaz de invocar e controlar qualquer criatura paranormal irracional associada ao elemento do Sangue dentro da Realidade. VOCÊ NÃO DEVE SE ENVOLVER COM O DIABO",
+    "enigma_medo": "Ninguém sabe como derrotar o Diabo. Registros antigos falam sobre símbolos sagrados que afastariam a Besta, mas nada parece funcionar de verdade. Se existe uma forma de derrotar essa criatura, esse é um segredo muito bem guardado. Sabe-se, entretanto, que a Morte é a entidade opressora do Sangue. Talvez a resposta não esteja no Sangue escarlate, mas sim no lodo da Morte. Seria uma manifestação de Morte com força equivalente ao Diabo a chave para derrotá-lo? Quando o Enigma de Medo do Diabo for resolvido ele perde sua imunidade a dano e seus bônus de testes de resistência são reduzidos para +25.",
+    "img": "img/Diabo.png",
+    "VD": 400,
+    "categoria": "criatura",
+    "tamanho": "médio",
+    "vulnerabilidade": "morte",
+    "deslocamento": 18,
+    "defesa": 66,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "sangue"
+      },
+      {
+        "principal": false,
+        "nome": "conhecimento"
+      },
+      {
+        "principal": false,
+        "nome": "medo"
+      }
+    ],
+    "presenca_perturbadora": {
+      "dt": 45,
+      "dano": [
+        {
+          "qtd_dado": 10,
+          "tipo_dado": "d8",
+          "tipo_dano": "mental"
+        }
+      ],
+      "imunidade_percentual": null
+    },
+    "atributos": {
+      "agi": 6,
+      "for": 6,
+      "int": 6,
+      "pre": 6,
+      "vig": 6
+    },
+    "pontos_vida": {
+      "total": 1666,
+      "machucado": 833
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 6,
+        "bonus": 25
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 6,
+        "bonus": 35
+      },
+      {
+        "nome": "fortitude",
+        "qtd_dado": 6,
+        "bonus": 35
+      },
+      {
+        "nome": "reflexos",
+        "qtd_dado": 6,
+        "bonus": 35
+      },
+      {
+        "nome": "vontade",
+        "qtd_dado": 6,
+        "bonus": 35
+      }
+    ],
+    "resistencias": [
+      {
+        "nome": "balístico",
+        "valor": 20,
+        "imune": false
+      },
+      {
+        "nome": "impacto",
+        "valor": 20,
+        "imune": false
+      },
+      {
+        "nome": "perfuração",
+        "valor": 20,
+        "imune": false
+      },
+      {
+        "nome": "condições de atordoamento e paralisia",
+        "valor": 0,
+        "imune": true
+      },
+      {
+        "nome": "dano",
+        "valor": 0,
+        "imune": true
+      },
+      {
+        "nome": "dano e efeitos de sangue",
+        "valor": 0,
+        "imune": true
+      }
+    ],
+    "acoes": [
+      {
+        "nome": "arma sangrenta (corpo a corpo)",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": "x3",
+        "teste": {
+          "qtd_dado": 6,
+          "bonus": 45
+        },
+        "dano": {
+          "qtd_dado": 2,
+          "tipo_dado": "d10",
+          "bonus": 50,
+          "tipo_dano": "sangue"
+        },
+        "descricao": "Ataque corpo a corpo x2"
+      },
+      {
+        "nome": "chifre do diabo",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": "x3",
+        "teste": {
+          "qtd_dado": 6,
+          "bonus": 45
+        },
+        "dano": {
+          "qtd_dado": 2,
+          "tipo_dado": "d8",
+          "bonus": 50,
+          "tipo_dano": "sangue"
+        },
+        "descricao": "Ataque corpo a corpo"
+      },
+      {
+        "nome": "arma sangrenta (à distância)",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "médio",
+        "critico": "x3",
+        "teste": {
+          "qtd_dado": 6,
+          "bonus": 45
+        },
+        "dano": {
+          "qtd_dado": 2,
+          "tipo_dado": "d10",
+          "bonus": 50,
+          "tipo_dano": "sangue"
+        },
+        "descricao": "Distância x2"
+      },
+      {
+        "nome": "explodir em sangue",
+        "duracao": "livre",
+        "tipo_acao": "habilidade",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "O Diabo é capaz de controlar o sangue de qualquer ser com o qual ele tenha contato direto. Se ele causar dano em um personagem usando sua arma sangrenta, ou se tocar diretamente em uma ferida de um personagem, ele causa 10d6 pontos de dano de Sangue. O Diabo pode usar esta habilidade duas vezes por turno."
+      },
+      {
+        "nome": "sangrar",
+        "duracao": "livre",
+        "tipo_acao": "habilidade",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "Se o Diabo acertar um ataque com seu chifre, pode escolher soltar o apêndice e deixá-lo preso no personagem. Um personagem com um chifre preso em si sofre vulnerabilidade a Sangue até removê-lo. Fazer isso requer uma ação padrão e causa 8d8 pontos de dano de Sangue. O chifre do Diabo sempre cresce de volta no começo do seu turno."
+      },
+      {
+        "nome": "transportar pelo sangue",
+        "duracao": "movimento",
+        "tipo_acao": "habilidade",
+        "alcance": "especial",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "O Diabo pode se movimentar através do Sangue, inclusive daquele que esteja saindo de dentro de um personagem. Com uma ação de movimento, o Diabo pode se deslocar para qualquer espaço que tenha uma grande quantidade de sangue exposta ou adjacente a um personagem machucado ou morrendo."
+      },
+      {
+        "nome": "senhor do sangue",
+        "duracao": "padrão",
+        "tipo_acao": "habilidade",
+        "alcance": "médio",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "Uma vez por cena, o Diabo pode invocar e controlar uma ou mais criaturas de Sangue cujo VD total somado seja até 400. As criaturas aparecem em alcance médio do Diabo e agem a partir da próxima rodada, no turno do Diabo, seguindo a vontade dele."
+      },
+      {
+        "nome": "pacto",
+        "duracao": "padrão",
+        "tipo_acao": "habilidade",
+        "alcance": "curto",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "O Diabo oferece ao alvo um pacto de Sangue. Se o pacto for aceito, o Diabo irá cumprir o que foi prometido, normalmente com resoluções distorcidas ao pé da letra. Em troca, o alvo sofre 10d6 pontos de dano mental e, se enlouquecer como resultado, se torna um servo obcecado pelo Diabo para o resto da vida."
+      },
+      {
+        "nome": "desejos de sangue",
+        "duracao": "completa",
+        "tipo_acao": "habilidade",
+        "alcance": "médio",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "Todos os personagens em alcance médio do Diabo entram em uma fúria de Sangue e atacam outro personagem em alcance curto a escolha do Diabo (Vontade DT 45 evita). Um personagem afetado por esta habilidade deve usar sua ação com o maior potencial de dano, mas não pode conjurar rituais. Um personagem que passe no teste de Vontade fica imune a esta habilidade até final da cena."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "percepção às cegas",
+        "descricao": null
+      },
+      {
+        "nome": "ardiloso",
+        "descricao": "O Diabo gosta de fazer pactos e ocasionalmente aparece para pessoas normais. Ele pode escolher não ativar sua Presença Perturbadora quando encontra um personagem."
+      },
+      {
+        "nome": "decepar máscara",
+        "descricao": "A intensidade dos sentimentos do Diabo é a única coisa capaz de romper a calmaria do Equilíbrio e resolver o Enigma de Medo da Máscara do Desespero."
+      },
+      {
+        "nome": "potência de sangue",
+        "descricao": "O Diabo recupera 50 PV no início de cada um de seus turnos. Além disso, seu modificador para todos os testes de perícia baseados em Força, Vigor ou Presença é +35, e para testes baseados nos demais atributos, é +25."
       }
     ]
   }

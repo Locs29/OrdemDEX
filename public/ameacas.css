@@ -104,15 +104,15 @@ h2{
     background-color: #28292b;  
 }
 .conhecimento {
-    border-color: #ffd700;     
-    color: #ffffff;
-    background-color: #332b00; 
+    border-color: #332b00;     
+    color: #000000;
+    background-color: #ffd700; 
 }
 
 .energia {
-    border-color: #8a2be2;      
+    border-color: #200b3b;      
     color: #ffffff;
-    background-color: #200b3b;
+    background-color: #8a2be2;
 }
 
 .medo {
@@ -155,7 +155,9 @@ h2{
     margin-right: 10%;
     margin-bottom: 15px;
     text-align: center; 
+    
 }
+
 
 .faixa-texto {
     background-color: #000;
@@ -347,4 +349,22 @@ h3{
 
 strong{
     color: #2e0303;
+}
+
+.carregando{
+    color: rgb(255, 255, 255);
+    background-color: rgb(180, 37, 37);
+    margin: 20%;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.erro{
+    color: whitesmoke;
+    background-color: rgb(180, 37, 37);
+    margin: 20%;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 20px;
 }

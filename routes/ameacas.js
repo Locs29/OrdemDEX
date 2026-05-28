@@ -16,7 +16,7 @@ const writeData = (data) => {
     fs.writeFileSync(pathDados, JSON.stringify(data, null, 2));
 };
 
-// _______________________________________________________________ ROTAS_________________________________________________________________________
+// --- ROTAS ---
 
 // GET - Listar todas as ameaças
 router.get('/', (req, res) => {
@@ -24,52 +24,53 @@ router.get('/', (req, res) => {
     res.json(ameacas);
 });
 
-// Rota GET (ler) ameaças por ID
+// GET - Ler ameaça por ID
 router.get('/:id', (req, res) => {  
     const id = Number(req.params.id);
     const ameacas = readData();
     const ameaca = ameacas.find(a => a.id === id);
 
-    if (!ameaca) { //Verifica se existe o ID, se não, mostra erro
+    if (!ameaca) {
         return res.status(404).json({
-            erro: "ameaça não encontrada",
+            erro: "Ameaça não encontrada",
             mensagem: "Não existe nenhuma ameaça com esse Id"
         });
-    };
+    }
 
     res.json(ameaca);
 });
 
-// Rota GET (ler) ameaças por NOME
+// GET - Ler ameaça por NOME
 router.get('/nome/:nome', (req, res) => {  
     const nome = String(req.params.nome);
     const ameacas = readData();
     const ameaca = ameacas.find(a => a.nome.toLowerCase() === nome.toLowerCase());
 
-    if (!ameaca) { //Verifica se existe o Nome, se não, mostra erro
+    if (!ameaca) {
         return res.status(404).json({
-            erro: "ameaça não encontrada",
+            erro: "Ameaça não encontrada",
             mensagem: "Não existe nenhuma ameaça com esse nome"
         });
-    };
+    }
 
     res.json(ameaca);
 });
 
 // POST - Criar nova ameaça
 router.post('/', (req, res) => {
-    const { nome, descricao, enigma_medo, img, VD, tipos, categoria, tamanho, presença_perturbadora, 
-        sentidos, defesa, pontos_vida, resistencias, vulnerabilidade, 
-        atributos, deslocamento, acoes, passivas } = req.body;
+    const { 
+        nome, descricao, enigma_medo, img, VD, tipos, categoria, tamanho, presenca_perturbadora, defesa, pontos_vida, pericias, resistencias, 
+        vulnerabilidade, atributos, deslocamento, acoes, passivas 
+    } = req.body;
 
-    // Validação se valor inserido
+    // Validação básica
     if (!tipos || !nome || !pontos_vida) {
-        return res.status(400).json({ erro: "nome, tipos, e pontos de vida são obrigatórios"});
+        return res.status(400).json({ erro: "Nome, tipos e pontos de vida são obrigatórios" });
     }
 
     const ameacas = readData();
     const novaAmeaca = {
-        id: ameacas.length > 0 ? ameacas[ameacas.length - 1].id + 1 : 1 ,
+        id: ameacas.length > 0 ? ameacas[ameacas.length - 1].id + 1 : 1,
         nome,
         descricao,
         enigma_medo,
@@ -78,10 +79,10 @@ router.post('/', (req, res) => {
         tipos,
         categoria,
         tamanho,
-        presença_perturbadora,
-        sentidos,
+        presenca_perturbadora,
         defesa,
         pontos_vida,
+        pericias,
         resistencias,
         vulnerabilidade,
         atributos,
@@ -96,43 +97,46 @@ router.post('/', (req, res) => {
     res.status(201).json(novaAmeaca);
 });
 
-router.put('/:id', (req, res) => { // Rota PUT (modificar) algum ameaça por ID
+// PUT - Modificar ameaça por ID
+router.put('/:id', (req, res) => { 
     const id = Number(req.params.id);
-
-    const { nome, descricao, enigma_medo, img, VD, tipos, categoria, tamanho, presença_perturbadora, sentidos, defesa,
-            pontos_vida, resistencias, vulnerabilidade, atributos, deslocamento, acoes, passivas 
-        } = req.body;
+    const { 
+        nome, descricao, enigma_medo, img, VD, tipos, categoria, tamanho, presenca_perturbadora, defesa, pontos_vida, pericias, resistencias, 
+        vulnerabilidade, atributos, deslocamento, acoes, passivas 
+    } = req.body;
 
     const ameacas = readData();
-    const index= ameacas.findIndex(a => a.id === id);
+    const index = ameacas.findIndex(a => a.id === id);
 
-    if (index === -1) { //Verifica se existe pelo ID
+    if (index === -1) {
         return res.status(404).json({
-            erro: "ameaça não encontrada",
+            erro: "Ameaça não encontrada",
             mensagem: "Não existe nenhuma ameaça com esse Id"
         });
+    }
+
+    ameacas[index] = { 
+        id, nome, descricao, enigma_medo, img, VD, tipos, categoria, tamanho, presenca_perturbadora, defesa, pontos_vida, pericias, resistencias, 
+        vulnerabilidade, atributos, deslocamento, acoes, passivas  
     };
 
-    ameacas[index] = { id, nome, descricao, enigma_medo, img, VD, tipos, categoria, tamanho, presença_perturbadora, 
-        sentidos, defesa, pontos_vida, resistencias, vulnerabilidade, atributos, deslocamento, acoes, passivas  };
-
-    writeData(ameacas)
+    writeData(ameacas);
     res.json(ameacas[index]);
 });
 
-// DELETE - Remover por id
+// DELETE - Remover ameaça por ID
 router.delete('/:id', (req, res) => {
     const id = Number(req.params.id);
     let ameacas = readData();
     const existe = ameacas.some(a => a.id === id);
 
     if (!existe) {
-        return res.status(404).json({ erro: "ameaça não encontrada" });
+        return res.status(404).json({ erro: "Ameaça não encontrada" });
     }
 
     ameacas = ameacas.filter(a => a.id !== id);
     writeData(ameacas);
-    res.json({ mensagem: 'ameaça removida!' });
+    res.json({ mensagem: 'Ameaça removida com sucesso!' });
 });
 
 //Exposta a rota

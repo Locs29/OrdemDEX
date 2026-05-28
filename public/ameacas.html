@@ -2,7 +2,7 @@
 <html lang="pt_BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="Ameaças" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OrdemDEX-Ameaças</title>
     <link rel="stylesheet" href="ameacas.css">
     <style>
@@ -15,8 +15,6 @@
         <h2>Ameaças</h2>
     </header>
     
-
-
     <p class="instrucoes">Pesquise uma ameaça do livro:</p>
 
     <div class="buscar">
@@ -59,11 +57,11 @@
 
                 const presencaHTML = dados.presenca_perturbadora 
                     ? `<div class="bloco-presenca">
-                        <span class="faixa-texto">PRESENÇA PERTURBADORA</span>
-                        <div class="faixa-conteudo">
-                            DT ${dados.presenca_perturbadora.dt} ♦ ${dados.presenca_perturbadora.dano[0].qtd_dado}${dados.presenca_perturbadora.dano[0].tipo_dado} <span style="text-transform: lowercase;">${dados.presenca_perturbadora.dano[0].tipo_dano}</span>
-                        </div>
-                    </div><br>` 
+                            <span class="faixa-texto">PRESENÇA PERTURBADORA</span>
+                            <div class="faixa-conteudo">
+                                DT ${dados.presenca_perturbadora.dt} ♦ ${dados.presenca_perturbadora.dano[0].qtd_dado}${dados.presenca_perturbadora.dano[0].tipo_dado} <span style="text-transform: lowercase;">${dados.presenca_perturbadora.dano[0].tipo_dano}</span>
+                            </div>
+                        </div><br>` 
                     : '';
 
                 const atributosHTML = dados.atributos 
@@ -101,10 +99,23 @@
                         <span class="tipo ${dados.vulnerabilidade.toLowerCase()}">${dados.vulnerabilidade}</span>`
                     : ' <div class="label">Fraqueza</div> <span style="font-style: italic; color: #ccc;">Nenhuma</span>';
                 
-                const resistenciasHTML = dados.resistencias && dados.resistencias.length > 0
-                    ? dados.resistencias.map(r => `
+                // LÓGICA DE RESISTÊNCIAS E IMUNIDADES
+                const arrayResistencias = dados.resistencias || [];
+                const resNormais = arrayResistencias.filter(r => !r.imune);
+                const resImunes = arrayResistencias.filter(r => r.imune);
+
+                const resistenciasHTML = resNormais.length > 0
+                    ? resNormais.map(r => `
                         <div>
-                            <span >${r.nome}</span>: ${r.valor}
+                            <span style="text-transform: capitalize;">${r.nome}</span>: ${r.valor}
+                        </div>
+                        `).join('')
+                    : '<div class="null">Nenhuma</div>';
+
+                const imunidadesHTML = resImunes.length > 0
+                    ? resImunes.map(r => `
+                        <div>
+                            <span style="text-transform: capitalize;">${r.nome}</span>
                         </div>
                         `).join('')
                     : '<div class="null">Nenhuma</div>';
@@ -230,6 +241,13 @@
                             </div>
 
                             <div class='info-item'>
+                                <div class='label'>Imunidades</div>
+                                <div class='value' style="font-size: medium;">
+                                    ${imunidadesHTML}
+                                </div>
+                            </div>
+
+                            <div class='info-item'>
                                 ${vulnerabilidadeHTML}
                             </div>
                         </div>
@@ -245,8 +263,8 @@
                         <div class='habilidades'>
                             <h3>AÇÕES</h3>
                             ${acoesHTML}
+                        </div>
                     </div>
-</div>
                 `;
                 
             } catch (e) {

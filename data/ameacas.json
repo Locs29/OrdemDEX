@@ -1948,5 +1948,1407 @@
         "descricao": "O Diabo recupera 50 PV no início de cada um de seus turnos. Além disso, seu modificador para todos os testes de perícia baseados em Força, Vigor ou Presença é +35, e para testes baseados nos demais atributos, é +25."
       }
     ]
+  },
+  {
+    "id": 13,
+    "nome": "Aracnasita",
+    "descricao": "Uma entidade originada de um aracnídeo exposto a um símbolo de invocação de Morte. Ela se desenvolve como um parasita, alimentando-se do tempo de vida humano para crescer até se tornar uma aberração gigantesca que absorve o corpo da vítima em um casulo em seu abdômen.",
+    "enigma_medo": "O lodo de Morte em seu corpo foge do fogo e do calor. Caso sofra dano de fogo, a Aracnasita perde sua imunidade a dano até o início de seu próximo turno.",
+    "img": "img/Aracnasita.png",
+    "VD": 80,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "morte"
+      }
+    ],
+    "categoria": "criatura",
+    "tamanho": "grande",
+    "presenca_perturbadora": {
+      "dt": 20,
+      "dano": [
+        {
+          "qtd_dado": 4,
+          "tipo_dado": "d6",
+          "tipo_dano": "mental"
+        }
+      ],
+      "imunidade_percentual": 40
+    },
+    "defesa": 23,
+    "pontos_vida": {
+      "total": 140,
+      "machucado": 70
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 1,
+        "bonus": 10
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 3,
+        "bonus": 10
+      },
+      {
+        "nome": "furtividade",
+        "qtd_dado": 3,
+        "bonus": 8
+      }
+    ],
+    "resistencias": [],
+    "vulnerabilidade": "energia",
+    "atributos": {
+      "agi": 3,
+      "for": 2,
+      "int": 1,
+      "pre": 1,
+      "vig": 2
+    },
+    "deslocamento": 12,
+    "acoes": [
+      {
+        "nome": "mordida",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "teste": {
+          "qtd_dado": 3,
+          "bonus": 15
+        },
+        "dano": {
+          "qtd_dado": 2,
+          "tipo_dado": "d10",
+          "bonus": 10,
+          "tipo_dano": "perfuração"
+        },
+        "descricao": "Ataque padrão"
+      },
+      {
+        "nome": "estacar",
+        "duracao": "livre",
+        "tipo_acao": "habilidade",
+        "alcance": "corpo a corpo",
+        "descricao": "Ao causar dano com a mordida, pode prender o alvo com lodo. A vítima sofre +1d10 de dano de Morte e fica agarrada."
+      },
+      {
+        "nome": "disparar teia",
+        "duracao": "movimento",
+        "tipo_acao": "habilidade",
+        "alcance": "curto",
+        "descricao": "Cria uma teia de 3m. Alvos na área ficam agarrados (Reflexos DT 20 evita) e sofrem 2d8+10 de dano de Morte por rodada."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "percepção às cegas",
+        "descricao": null
+      },
+      {
+        "nome": "percepção tátil",
+        "descricao": "Percebe tudo em contato com sua teia, ignorando penalidades de visão."
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "nome": "Carniçal Preto da Morte",
+    "descricao": "Uma tentativa de dar consciência à Morte. Possui anatomia muscular definida e age com arrogância e inteligência, utilizando símbolos hipnóticos para desviar ataques.",
+    "enigma_medo": null,
+    "img": "img/Carnical.png",
+    "VD": 200,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "morte"
+      },
+      {
+        "principal": false,
+        "nome": "conhecimento"
+      }
+    ],
+    "categoria": "criatura",
+    "tamanho": "médio",
+    "presenca_perturbadora": {
+      "dt": 30,
+      "dano": [
+        {
+          "qtd_dado": 6,
+          "tipo_dado": "d6",
+          "tipo_dano": "mental"
+        }
+      ],
+      "imunidade_percentual": 65
+    },
+    "defesa": 38,
+    "pontos_vida": {
+      "total": 400,
+      "machucado": 200
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 3,
+        "bonus": 15
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 4,
+        "bonus": 15
+      },
+      {
+        "nome": "atletismo",
+        "qtd_dado": 4,
+        "bonus": 15
+      }
+    ],
+    "resistencias": [
+      {
+        "nome": "corte",
+        "valor": 10
+      },
+      {
+        "nome": "impacto",
+        "valor": 10
+      },
+      {
+        "nome": "perfuração",
+        "valor": 10
+      },
+      {
+        "nome": "morte",
+        "valor": 20
+      }
+    ],
+    "vulnerabilidade": "energia",
+    "atributos": {
+      "agi": 4,
+      "for": 4,
+      "int": 3,
+      "pre": 3,
+      "vig": 3
+    },
+    "deslocamento": 12,
+    "acoes": [
+      {
+        "nome": "garra da morte",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "teste": {
+          "qtd_dado": 4,
+          "bonus": 25
+        },
+        "dano": {
+          "qtd_dado": 4,
+          "tipo_dado": "d10",
+          "bonus": 20,
+          "tipo_dano": "morte"
+        },
+        "descricao": "Ataque duplo"
+      },
+      {
+        "nome": "hipnose",
+        "duracao": "padrão",
+        "tipo_acao": "habilidade",
+        "alcance": "curto",
+        "descricao": "Domina a mente de um ser (Vontade DT 29 evita). A vítima fica sob controle total do Carniçal."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "corpo fechado",
+        "descricao": "Mirar na cabeça ignora imunidade a dano balístico."
+      },
+      {
+        "nome": "instinto mortal",
+        "descricao": "Se machucado, usa hipnose como ação livre."
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "nome": "Ceifador Espiral",
+    "descricao": "O rosto da Morte. Todos os momentos de uma vida sendo devorados em uma espiral infinita. Onde ele se manifesta, nada permanece vivo e nenhuma estrutura resiste ao pó.",
+    "enigma_medo": "Transformar a espiral em linha. Ao ser resolvido, perde resistência a dano e áreas de cinzas se tornam terreno normal.",
+    "img": "img/CeifadorEspiral.png",
+    "VD": 380,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "morte"
+      }
+    ],
+    "categoria": "criatura",
+    "tamanho": "grande",
+    "presenca_perturbadora": {
+      "dt": 45,
+      "dano": [
+        {
+          "qtd_dado": 9,
+          "tipo_dado": "d8",
+          "tipo_dano": "mental"
+        }
+      ],
+      "imunidade_percentual": 0
+    },
+    "defesa": 58,
+    "pontos_vida": {
+      "total": 999,
+      "machucado": 499
+    },
+    "resistencias": [
+      {
+        "nome": "dano",
+        "valor": 50
+      }
+    ],
+    "vulnerabilidade": "energia",
+    "atributos": {
+      "agi": 5,
+      "for": 5,
+      "int": 5,
+      "pre": 5,
+      "vig": 5
+    },
+    "deslocamento": 15,
+    "acoes": [
+      {
+        "nome": "foice da morte",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "teste": {
+          "qtd_dado": 5,
+          "bonus": 40
+        },
+        "dano": {
+          "qtd_dado": 5,
+          "tipo_dado": "d10",
+          "bonus": 20,
+          "tipo_dano": "morte"
+        },
+        "descricao": "Ataque duplo"
+      },
+      {
+        "nome": "cinzas das terras desoladas",
+        "duracao": "completa",
+        "tipo_acao": "habilidade",
+        "alcance": "longo",
+        "descricao": "Área acelerada pelo tempo. Seres na área sofrem 10d10+20 de dano de Morte e ficam enjoados."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "decepar",
+        "descricao": "Críticos reduzem o alvo a 25 PV e causam perda de atributo permanente."
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "nome": "Enraizado",
+    "descricao": "Resultado de um corpo enterrado próximo à vegetação infestada pela Morte, invadido por raízes grossas e preenchido com o Lodo que movimenta seus membros reforçados pela estrutura bizarra que se forma das raízes entrelaçadas, como um esqueleto armadurado.",
+    "enigma_medo": null,
+    "img": "img/Enraizado.png",
+    "VD": 120,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "morte"
+      }
+    ],
+    "categoria": "criatura",
+    "tamanho": "médio",
+    "presenca_perturbadora": {
+      "dt": 20,
+      "dano": [
+        {
+          "qtd_dado": 4,
+          "tipo_dado": "d6",
+          "tipo_dano": "mental"
+        }
+      ],
+      "imunidade_percentual": 50
+    },
+    "defesa": 28,
+    "pontos_vida": {
+      "total": 140,
+      "machucado": 70
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 1,
+        "bonus": 10
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 3,
+        "bonus": 10
+      },
+      {
+        "nome": "atletismo",
+        "qtd_dado": 3,
+        "bonus": 10
+      },
+      {
+        "nome": "vontade",
+        "qtd_dado": 1,
+        "bonus": 5
+      }
+    ],
+    "resistencias": [
+      {
+        "nome": "corte",
+        "valor": 10
+      },
+      {
+        "nome": "impacto",
+        "valor": 10
+      },
+      {
+        "nome": "perfuração",
+        "valor": 10
+      },
+      {
+        "nome": "morte",
+        "valor": 20
+      }
+    ],
+    "vulnerabilidade": "energia",
+    "atributos": {
+      "agi": 3,
+      "for": 3,
+      "int": 1,
+      "pre": 1,
+      "vig": 3
+    },
+    "deslocamento": 9,
+    "acoes": [
+      {
+        "nome": "punho espinhento",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 3,
+          "bonus": 15
+        },
+        "dano": {
+          "qtd_dado": 2,
+          "tipo_dado": "d8",
+          "bonus": 8,
+          "tipo_dano": "impacto"
+        },
+        "descricao": "Ataque corpo a corpo x2. Causa +2d12 de dano de Morte adicional."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "percepção às cegas",
+        "descricao": null
+      },
+      {
+        "nome": "imortalidade",
+        "descricao": "Quando o enraizado morre, se desfaz em uma poça de lodo, galhos e raízes. Ele retornará após 1d2 rodadas com 70 PV. Se sofrer 20 pontos de dano de fogo ou de Energia somados enquanto estiver na forma de poça, será permanentemente destruído."
+      },
+      {
+        "nome": "veneno pútrido",
+        "descricao": "A primeira vez que um personagem sofre dano do punho espinhento em uma cena, fica envenenado. No início de cada turno, deve fazer um teste de Fortitude (DT 23) ou sofrer 4d12 pontos de dano de Morte."
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "nome": "Escutado",
+    "descricao": "Originado de alguém que escutou a “Melodia Espiral”, o escutado é um corpo humanoide retorcido e magro que anda de forma quadrúpede e bizarramente invertida.",
+    "enigma_medo": "Tocar a melodia do escutado por 4 rodadas ininterruptas faz com que ele perca sua imunidade a dano até o fim da cena.",
+    "img": "img/Escutado.png",
+    "VD": 160,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "morte"
+      },
+      {
+        "principal": false,
+        "nome": "energia"
+      }
+    ],
+    "categoria": "criatura",
+    "tamanho": "médio",
+    "presenca_perturbadora": {
+      "dt": 25,
+      "dano": [
+        {
+          "qtd_dado": 4,
+          "tipo_dado": "d8",
+          "tipo_dano": "mental"
+        }
+      ],
+      "imunidade_percentual": 55
+    },
+    "defesa": 29,
+    "pontos_vida": {
+      "total": 290,
+      "machucado": 145
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 2,
+        "bonus": 10
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 4,
+        "bonus": 10
+      },
+      {
+        "nome": "reflexos",
+        "qtd_dado": 4,
+        "bonus": 10
+      },
+      {
+        "nome": "fortitude",
+        "qtd_dado": 3,
+        "bonus": 10
+      }
+    ],
+    "resistencias": [
+      {
+        "nome": "dano",
+        "valor": "imune"
+      }
+    ],
+    "vulnerabilidade": null,
+    "atributos": {
+      "agi": 4,
+      "for": 3,
+      "int": 1,
+      "pre": 2,
+      "vig": 3
+    },
+    "deslocamento": 12,
+    "acoes": [
+      {
+        "nome": "mordida",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 3,
+          "bonus": 20
+        },
+        "dano": {
+          "qtd_dado": 3,
+          "tipo_dado": "d6",
+          "bonus": 10,
+          "tipo_dano": "perfuração"
+        },
+        "descricao": "Ataque corpo a corpo x2"
+      },
+      {
+        "nome": "cabeça arremessada",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "curto",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 4,
+          "bonus": 15
+        },
+        "dano": {
+          "qtd_dado": 1,
+          "tipo_dado": "d10",
+          "bonus": 10,
+          "tipo_dano": "impacto"
+        },
+        "descricao": "Distância x2"
+      },
+      {
+        "nome": "vomitar lodo",
+        "duracao": "movimento",
+        "tipo_acao": "habilidade",
+        "alcance": "curto",
+        "critico": null,
+        "teste": null,
+        "dano": {
+          "qtd_dado": 4,
+          "tipo_dado": "d10",
+          "bonus": 10,
+          "tipo_dano": "morte"
+        },
+        "descricao": "Uma vez por cena, despeja lodo em um ser. O alvo sofre dano e fica lento até o fim da cena (Reflexos DT 25 reduz à metade e evita condição)."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "percepção às cegas",
+        "descricao": null
+      },
+      {
+        "nome": "multiplicação melódica",
+        "descricao": "No início de seu turno, se estiver ouvindo a melodia de sua criação, manifesta uma cópia sua em alcance curto. A cópia possui 145 PV e não tem imunidade a dano."
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "nome": "Esqueleto de Lodo",
+    "descricao": "Um cadáver consumido pela Morte, tomando uma forma completamente esquelética e acinzentada. O Lodo escorre por todos os orifícios de seu corpo, deixando um rastro que parece persegui-lo.",
+    "enigma_medo": null,
+    "img": "img/EsqueletoLodo.png",
+    "VD": 20,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "morte"
+      }
+    ],
+    "categoria": "criatura",
+    "tamanho": "médio",
+    "presenca_perturbadora": {
+      "dt": 14,
+      "dano": [
+        {
+          "qtd_dado": 2,
+          "tipo_dado": "d4",
+          "tipo_dano": "mental"
+        }
+      ],
+      "imunidade_percentual": 25
+    },
+    "defesa": 14,
+    "pontos_vida": {
+      "total": 40,
+      "machucado": 20
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 1,
+        "bonus": 0
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 2,
+        "bonus": 0
+      },
+      {
+        "nome": "reflexos",
+        "qtd_dado": 2,
+        "bonus": 5
+      }
+    ],
+    "resistencias": [
+      {
+        "nome": "corte",
+        "valor": 5
+      },
+      {
+        "nome": "impacto",
+        "valor": 5
+      },
+      {
+        "nome": "perfuração",
+        "valor": 5
+      },
+      {
+        "nome": "morte",
+        "valor": 10
+      }
+    ],
+    "vulnerabilidade": "energia",
+    "atributos": {
+      "agi": 2,
+      "for": 2,
+      "int": 0,
+      "pre": 1,
+      "vig": 1
+    },
+    "deslocamento": 6,
+    "acoes": [
+      {
+        "nome": "garras",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 2,
+          "bonus": 5
+        },
+        "dano": {
+          "qtd_dado": 2,
+          "tipo_dado": "d6",
+          "bonus": 2,
+          "tipo_dano": "corte"
+        },
+        "descricao": "Ataque corpo a corpo x2"
+      },
+      {
+        "nome": "espiral de lodo",
+        "duracao": "completa",
+        "tipo_acao": "habilidade",
+        "alcance": "9m",
+        "critico": null,
+        "teste": null,
+        "dano": {
+          "qtd_dado": 2,
+          "tipo_dado": "d10",
+          "bonus": 0,
+          "tipo_dano": "morte"
+        },
+        "descricao": "Transforma-se em poça e lança-se em linha reta. Qualquer ser no caminho sofre dano (Reflexos DT 14 reduz à metade)."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "percepção às cegas",
+        "descricao": null
+      },
+      {
+        "nome": "imortalidade",
+        "descricao": "Quando o esqueleto morre, se desfaz em uma poça de lodo e ossos. Ele retornará após 1d3 rodadas com 20 PV. Se sofrer dano de fogo ou de Energia enquanto estiver na forma de poça, será permanentemente destruído."
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "nome": "Marionete",
+    "descricao": "A marionete é o resquício de uma memória distorcida por um acontecimento terrível, uma possibilidade roubada, o momento que nunca aconteceu. Tomando a forma de um esqueleto retorcido preenchido por Lodo.",
+    "enigma_medo": null,
+    "img": "img/Marionete.png",
+    "VD": 280,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "morte"
+      }
+    ],
+    "categoria": "criatura",
+    "tamanho": "médio",
+    "presenca_perturbadora": {
+      "dt": 35,
+      "dano": [
+        {
+          "qtd_dado": 8,
+          "tipo_dado": "d6",
+          "tipo_dano": "mental"
+        }
+      ],
+      "imunidade_percentual": 85
+    },
+    "defesa": 40,
+    "pontos_vida": {
+      "total": 700,
+      "machucado": 350
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 5,
+        "bonus": 15
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 3,
+        "bonus": 15
+      },
+      {
+        "nome": "vontade",
+        "qtd_dado": 5,
+        "bonus": 20
+      },
+      {
+        "nome": "reflexos",
+        "qtd_dado": 3,
+        "bonus": 15
+      }
+    ],
+    "resistencias": [
+      {
+        "nome": "corte",
+        "valor": 20
+      },
+      {
+        "nome": "impacto",
+        "valor": 20
+      },
+      {
+        "nome": "perfuração",
+        "valor": 20
+      },
+      {
+        "nome": "morte",
+        "valor": 20
+      }
+    ],
+    "vulnerabilidade": "energia",
+    "atributos": {
+      "agi": 3,
+      "for": 5,
+      "int": 1,
+      "pre": 5,
+      "vig": 2
+    },
+    "deslocamento": 6,
+    "acoes": [
+      {
+        "nome": "foice da morte",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 5,
+          "bonus": 30
+        },
+        "dano": {
+          "qtd_dado": 10,
+          "tipo_dado": "d8",
+          "bonus": 10,
+          "tipo_dano": "morte"
+        },
+        "descricao": "Ataque corpo a corpo x2"
+      },
+      {
+        "nome": "reflexos guiados por corda",
+        "duracao": "reação",
+        "tipo_acao": "habilidade",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "Uma vez por rodada, quando um ser se aproxima da marionete o suficiente para ficar adjacente, ela pode fazer um ataque de foice da morte contra esse ser."
+      },
+      {
+        "nome": "ironia do destino",
+        "duracao": "completa",
+        "tipo_acao": "habilidade",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "Executa dois ataques. Se acertar o segundo, agarra o ser. Enquanto agarrado, o dano sofrido pela marionete é dividido entre ela e o ser agarrado."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "percepção às cegas",
+        "descricao": null
+      },
+      {
+        "nome": "momento passivo",
+        "descricao": "A marionete não pode ter seu deslocamento reduzido e ignora terreno difícil. Além disso, não sofre efeitos que dependam que ela toque no chão."
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "nome": "Múmia Xipófaga",
+    "descricao": "Corpos entrelaçados mumificados vivos em busca da imortalidade. Aqueles agarrados pela criatura são fundidos ao seu corpo, tornando-se mais um dos seres amalgamados nas amarras da Morte.",
+    "enigma_medo": null,
+    "img": "img/Mumia.png",
+    "VD": 240,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "morte"
+      }
+    ],
+    "categoria": "criatura",
+    "tamanho": "médio",
+    "presenca_perturbadora": {
+      "dt": 30,
+      "dano": [
+        {
+          "qtd_dado": 6,
+          "tipo_dado": "d8",
+          "tipo_dano": "mental"
+        }
+      ],
+      "imunidade_percentual": 75
+    },
+    "defesa": 35,
+    "pontos_vida": {
+      "total": 400,
+      "machucado": 200
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 3,
+        "bonus": 10
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 5,
+        "bonus": 15
+      },
+      {
+        "nome": "fortitude",
+        "qtd_dado": 4,
+        "bonus": 15
+      },
+      {
+        "nome": "reflexos",
+        "qtd_dado": 5,
+        "bonus": 15
+      }
+    ],
+    "resistencias": [
+      {
+        "nome": "corte",
+        "valor": 10
+      },
+      {
+        "nome": "impacto",
+        "valor": 10
+      },
+      {
+        "nome": "perfuração",
+        "valor": 10
+      },
+      {
+        "nome": "morte",
+        "valor": 20
+      }
+    ],
+    "vulnerabilidade": "energia",
+    "atributos": {
+      "agi": 5,
+      "for": 4,
+      "int": 2,
+      "pre": 3,
+      "vig": 4
+    },
+    "deslocamento": 9,
+    "acoes": [
+      {
+        "nome": "garra enfaixada",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 4,
+          "bonus": 30
+        },
+        "dano": {
+          "qtd_dado": 4,
+          "tipo_dado": "d8",
+          "bonus": 30,
+          "tipo_dano": "corte"
+        },
+        "descricao": "Ataque corpo a corpo x2"
+      },
+      {
+        "nome": "vomitar lodo",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "curto",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 5,
+          "bonus": 25
+        },
+        "dano": {
+          "qtd_dado": 3,
+          "tipo_dado": "d6",
+          "bonus": 30,
+          "tipo_dano": "morte"
+        },
+        "descricao": "Distância x2. Causa +3d8 de dano mental adicional."
+      },
+      {
+        "nome": "agarrada mumificadora",
+        "duracao": "livre",
+        "tipo_acao": "habilidade",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 4,
+          "bonus": 30
+        },
+        "dano": {},
+        "descricao": "Se acertar garra enfaixada, pode agarrar. O alvo agarrado sofre 4d8+30 de dano de Morte no início do turno e a múmia recupera o PV. Se o alvo morrer, vira um esqueleto de lodo."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "percepção às cegas",
+        "descricao": null
+      },
+      {
+        "nome": "faixas da permanência",
+        "descricao": "Uma múmia reduzida a 0 PV não é destruída. Pode continuar agindo até o final do seu próximo turno. Se não terminar o turno com pelo menos 1 PV, ela morrerá."
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "nome": "Nidere",
+    "descricao": "O lobo invertido, o predador alfa das criaturas paranormais. Um caçador brutal e eficaz, cujos rastros propositais levam caçadores descuidados para o seu covil labiríntico.",
+    "enigma_medo": "Entender a lógica dos restos ósseos das vítimas em seu covil. Quando a origem for destruída, sofre -10 na Defesa e perde Regeneração e Senso de Direção.",
+    "img": "img/Nidere.png",
+    "VD": 320,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "morte"
+      },
+      {
+        "principal": false,
+        "nome": "sangue"
+      }
+    ],
+    "categoria": "criatura",
+    "tamanho": "grande",
+    "presenca_perturbadora": {
+      "dt": 35,
+      "dano": [
+        {
+          "qtd_dado": 8,
+          "tipo_dado": "d6",
+          "tipo_dano": "mental"
+        }
+      ],
+      "imunidade_percentual": 95
+    },
+    "defesa": 50,
+    "pontos_vida": {
+      "total": 800,
+      "machucado": 400
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 4,
+        "bonus": 25
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 5,
+        "bonus": 25
+      },
+      {
+        "nome": "furtividade",
+        "qtd_dado": 5,
+        "bonus": 23
+      },
+      {
+        "nome": "sobrevivência",
+        "qtd_dado": 4,
+        "bonus": 20
+      }
+    ],
+    "resistencias": [
+      {
+        "nome": "corte",
+        "valor": 20
+      },
+      {
+        "nome": "impacto",
+        "valor": 20
+      },
+      {
+        "nome": "perfuração",
+        "valor": 20
+      },
+      {
+        "nome": "morte",
+        "valor": 20
+      }
+    ],
+    "vulnerabilidade": "energia",
+    "atributos": {
+      "agi": 5,
+      "for": 5,
+      "int": 3,
+      "pre": 4,
+      "vig": 5
+    },
+    "deslocamento": 24,
+    "acoes": [
+      {
+        "nome": "garra invertida",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 5,
+          "bonus": 35
+        },
+        "dano": {
+          "qtd_dado": 4,
+          "tipo_dado": "d10",
+          "bonus": 40,
+          "tipo_dano": "morte"
+        },
+        "descricao": "Ataque corpo a corpo x2"
+      },
+      {
+        "nome": "mordida invertida",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 5,
+          "bonus": 35
+        },
+        "dano": {
+          "qtd_dado": 4,
+          "tipo_dado": "d12",
+          "bonus": 40,
+          "tipo_dano": "morte"
+        },
+        "descricao": "Ataque corpo a corpo"
+      },
+      {
+        "nome": "reverter",
+        "duracao": "livre",
+        "tipo_acao": "habilidade",
+        "alcance": "pessoal",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "Um ser que sofra dano das garras invertidas sofre um surto temporal e fica enjoado até o final do seu próximo turno."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "regeneração acelerada",
+        "descricao": "O nidere possui Cura Acelerada 50. Perde esta habilidade se o Enigma de Medo for resolvido."
+      },
+      {
+        "nome": "senso de direção perfeito",
+        "descricao": "Nunca se perde e recebe +2d20 em Percepção e Sobrevivência."
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "nome": "Sempiternal",
+    "descricao": "Resultado da evolução gradual de gerações isoladas expostas à Morte. Uma figura esquelética bizarra que manipula a própria percepção do tempo.",
+    "enigma_medo": null,
+    "img": "img/Sempiternal.png",
+    "VD": 360,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "morte"
+      }
+    ],
+    "categoria": "criatura",
+    "tamanho": "médio",
+    "presenca_perturbadora": {
+      "dt": 40,
+      "dano": [
+        {
+          "qtd_dado": 8,
+          "tipo_dado": "d8",
+          "tipo_dano": "mental"
+        }
+      ],
+      "imunidade_percentual": 0
+    },
+    "defesa": 53,
+    "pontos_vida": {
+      "total": 990,
+      "machucado": 445
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 5,
+        "bonus": 20
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 5,
+        "bonus": 25
+      }
+    ],
+    "resistencias": [
+      {
+        "nome": "corte",
+        "valor": 20
+      },
+      {
+        "nome": "impacto",
+        "valor": 20
+      },
+      {
+        "nome": "perfuração",
+        "valor": 20
+      },
+      {
+        "nome": "morte",
+        "valor": "imune"
+      }
+    ],
+    "vulnerabilidade": "energia",
+    "atributos": {
+      "agi": 5,
+      "for": 5,
+      "int": 4,
+      "pre": 5,
+      "vig": 4
+    },
+    "deslocamento": 12,
+    "acoes": [
+      {
+        "nome": "dedos alongados",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 5,
+          "bonus": 40
+        },
+        "dano": {
+          "qtd_dado": 4,
+          "tipo_dado": "d10",
+          "bonus": 0,
+          "tipo_dano": "morte"
+        },
+        "descricao": "Ataque corpo a corpo x4. Ativa Toque Acelerador."
+      },
+      {
+        "nome": "correntes de lodo",
+        "duracao": "movimento",
+        "tipo_acao": "habilidade",
+        "alcance": "médio",
+        "critico": null,
+        "teste": null,
+        "dano": {
+          "qtd_dado": 20,
+          "tipo_dado": "d6",
+          "bonus": 0,
+          "tipo_dano": "morte"
+        },
+        "descricao": "Projeta vinhas pelo chão. Seres na área sofrem dano (Fortitude DT 40 reduz à metade). Se machucado, recebe vulnerabilidade a Morte. Se reduzido a 0 PV, torna-se um enraizado."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "toque acelerador",
+        "descricao": "Dano dos dedos alongados envelhece a vítima em 1d10 anos. Com 20 anos, fica fraca; com 40 anos, debilitada; com 60 anos, morre."
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "nome": "Succ",
+    "descricao": "Um ser quadrúpede que busca sugar completamente o ar dos pulmões de sua vítima. Emite um som alto e constante, confundido com um aspirador de pó.",
+    "enigma_medo": null,
+    "img": "img/Succ.png",
+    "VD": 40,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "morte"
+      },
+      {
+        "principal": false,
+        "nome": "energia"
+      }
+    ],
+    "categoria": "criatura",
+    "tamanho": "médio",
+    "presenca_perturbadora": {
+      "dt": 15,
+      "dano": [
+        {
+          "qtd_dado": 3,
+          "tipo_dado": "d6",
+          "tipo_dano": "mental"
+        }
+      ],
+      "imunidade_percentual": 30
+    },
+    "defesa": 20,
+    "pontos_vida": {
+      "total": 65,
+      "machucado": 32
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 1,
+        "bonus": 5
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 4,
+        "bonus": 5
+      }
+    ],
+    "resistencias": [
+      {
+        "nome": "corte",
+        "valor": 5
+      },
+      {
+        "nome": "impacto",
+        "valor": 5
+      },
+      {
+        "nome": "perfuração",
+        "valor": 5
+      },
+      {
+        "nome": "morte",
+        "valor": 10
+      }
+    ],
+    "vulnerabilidade": "energia",
+    "atributos": {
+      "agi": 4,
+      "for": 2,
+      "int": 0,
+      "pre": 1,
+      "vig": 1
+    },
+    "deslocamento": 12,
+    "acoes": [
+      {
+        "nome": "mordida",
+        "duracao": "padrão",
+        "tipo_acao": "agredir",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": {
+          "qtd_dado": 4,
+          "bonus": 10
+        },
+        "dano": {
+          "qtd_dado": 2,
+          "tipo_dado": "d8",
+          "bonus": 2,
+          "tipo_dano": "perfuração"
+        },
+        "descricao": "Ataque corpo a corpo"
+      },
+      {
+        "nome": "sucção",
+        "duracao": "livre",
+        "tipo_acao": "habilidade",
+        "alcance": "corpo a corpo",
+        "critico": null,
+        "teste": null,
+        "dano": {},
+        "descricao": "Se acertar mordida, tira o ar dos pulmões. Alvo deve passar em Fortitude (DT 17) ou ficar inconsciente e ser reduzido a 0 PV no início do próximo turno do succ."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "percepção às cegas",
+        "descricao": null
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "nome": "O Deus da Morte",
+    "descricao": "Manifestação primordial da Morte na Realidade. Entidade suprema capaz de manipular completamente a percepção temporal, consumindo a entropia de tudo o que é vivo.",
+    "enigma_medo": "Sua destruição depende de outra entidade (o Anfitrião). Se resolvido, perde as habilidades Ciclo Infinito e Senhor do Tempo.",
+    "img": "img/DeusMorte.png",
+    "VD": 400,
+    "tipos": [
+      {
+        "principal": true,
+        "nome": "morte"
+      }
+    ],
+    "categoria": "relíquia",
+    "tamanho": "grande",
+    "presenca_perturbadora": {
+      "dt": 45,
+      "dano": [
+        {
+          "qtd_dado": 10,
+          "tipo_dado": "d8",
+          "tipo_dano": "mental"
+        }
+      ],
+      "imunidade_percentual": 0
+    },
+    "defesa": 60,
+    "pontos_vida": {
+      "total": 2000,
+      "machucado": 1000
+    },
+    "pericias": [
+      {
+        "nome": "percepção",
+        "qtd_dado": 5,
+        "bonus": 30
+      },
+      {
+        "nome": "iniciativa",
+        "qtd_dado": 6,
+        "bonus": 30
+      }
+    ],
+    "resistencias": [
+      {
+        "nome": "corte",
+        "valor": 20
+      },
+      {
+        "nome": "impacto",
+        "valor": 20
+      },
+      {
+        "nome": "perfuração",
+        "valor": 20
+      },
+      {
+        "nome": "morte",
+        "valor": "imune"
+      }
+    ],
+    "vulnerabilidade": "energia",
+    "atributos": {
+      "agi": 6,
+      "for": 6,
+      "int": 5,
+      "pre": 5,
+      "vig": 7
+    },
+    "deslocamento": 15,
+    "acoes": [
+      {
+        "nome": "espiral destrutiva",
+        "duracao": "padrão",
+        "tipo_acao": "habilidade",
+        "alcance": "longo",
+        "critico": null,
+        "teste": null,
+        "dano": {
+          "qtd_dado": 10,
+          "tipo_dado": "d10",
+          "bonus": 50,
+          "tipo_dano": "morte"
+        },
+        "descricao": "Cria espiral de 12m de raio. Seres sofrem dano massivo (Fortitude DT 45 reduz à metade)."
+      }
+    ],
+    "passivas": [
+      {
+        "nome": "ciclo infinito",
+        "descricao": "Recupera 50 PV no início do turno. Ao chegar a 0 PV, vira lodo e renasce no cadáver mais próximo com vida total e sem condições. Perde isso com Enigma resolvido."
+      }
+    ]
   }
 ]

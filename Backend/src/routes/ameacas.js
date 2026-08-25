@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('./config/db.js');
+const pool = require('../config/db');
 
 // --- ROTAS ---
 
@@ -161,6 +161,24 @@ router.put('/:id', async (req, res) => {
         console.error(error);
         res.status(500).json({ erro: "Erro ao atualizar a ameaça no banco de dados." });
     }
+
+// DELETE - Remove ameaça por ID
+router.delete('/:id', async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        const [resultado] = await pool.query('DELETE FROM ameacas WHERE id = ?', [id]);
+
+        if (resultado.affectedRows === 0) {
+            return res.status(404).json({ erro: "Ameaça não encontrada" });
+        }
+
+        res.json({ mensagem: 'Ameaça removida com sucesso!' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ erro: "Erro ao deletar a ameaça no banco de dados." });
+    }
+});
 });
 
 });

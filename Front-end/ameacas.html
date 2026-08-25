@@ -40,155 +40,80 @@
             div.innerHTML = '<div class="carregando">Buscando...</div>';
 
             try {
-                // Faz requisição para a rota da API de Ameaças (buscando pelo Nome)
                 const resposta = await fetch(`http://localhost:3000/ameacas/nome/${termoBusca}`);
                 const dados = await resposta.json();
 
                 if (!resposta.ok) {
-                    // Usa a mensagem de erro no backend
                     div.innerHTML = `<div class="erro">${dados.mensagem || "Ameaça não encontrada"}</div>`;
                     return;
                 }
 
-                // O array 'tipos' no seu JSON é composto por objetos, então 't.nome'
-                const tiposHTML = dados.tipos
-                    .map(t => `<span class="tipo ${t.nome.toLowerCase()}"> ${t.nome}</span>`)
+                // Função auxiliar para converter textos vindos do MySQL em JSON válido
+                const converterJSON = (valor, padrao) => {
+                    if (!valor) return padrao;
+                    if (typeof valor === 'string') {
+                        try { return JSON.parse(valor); } catch { return padrao; }
+                    }
+                    return valor;
+                };
+
+                // Tratamento seguro dos dados retornados
+                const tipos = converterJSON(dados.tipos, []);
+                const vulnerabilidades = converterJSON(dados.vulnerabilidades, []);
+                const acoes = converterJSON(dados.acoes, []);
+                const resistencias = converterJSON(dados.resistencias, {});
+
+                // Montagem dos elementos HTML
+                const tiposHTML = tipos
+                    .map(t => `<span class="tipo ${t.toLowerCase()}"> ${t}</span>`)
                     .join('');
 
                 const presencaHTML = dados.presenca_perturbadora 
                     ? `<div class="bloco-presenca">
                             <span class="faixa-texto">PRESENÇA PERTURBADORA</span>
-                            <div class="faixa-conteudo">
-                                DT ${dados.presenca_perturbadora.dt} ♦ ${dados.presenca_perturbadora.dano[0].qtd_dado}${dados.presenca_perturbadora.dano[0].tipo_dado} <span style="text-transform: lowercase;">${dados.presenca_perturbadora.dano[0].tipo_dano}</span>
-                            </div>
+                            <div class="faixa-conteudo">${dados.presenca_perturbadora}</div>
                         </div><br>` 
                     : '';
 
-                const atributosHTML = dados.atributos 
-                    ? `
+                const atributosHTML = `
                     <div class="atributos-container">
                         <h3 class="titulo-atributos">ATRIBUTOS</h3>
                         <div class="atributos-lista">
-                            <div class="atributo-item">
-                                <span class="atributo-label">AGI</span>
-                                <div class="hexagono"><span>${dados.atributos.agi}</span></div>
-                            </div>
-                            <div class="atributo-item">
-                                <span class="atributo-label">FOR</span>
-                                <div class="hexagono"><span>${dados.atributos.for}</span></div>
-                            </div>
-                            <div class="atributo-item">
-                                <span class="atributo-label">INT</span>
-                                <div class="hexagono"><span>${dados.atributos.int}</span></div>
-                            </div>
-                            <div class="atributo-item">
-                                <span class="atributo-label">PRE</span>
-                                <div class="hexagono"><span>${dados.atributos.pre}</span></div>
-                            </div>
-                            <div class="atributo-item">
-                                <span class="atributo-label">VIG</span>
-                                <div class="hexagono"><span>${dados.atributos.vig}</span></div>
-                            </div>
+                            <div class="atributo-item"><span class="atributo-label">AGI</span><div class="hexagono"><span>${dados.agilidade}</span></div></div>
+                            <div class="atributo-item"><span class="atributo-label">FOR</span><div class="hexagono"><span>${dados.forca}</span></div></div>
+                            <div class="atributo-item"><span class="atributo-label">INT</span><div class="hexagono"><span>${dados.inteligencia}</span></div></div>
+                            <div class="atributo-item"><span class="atributo-label">PRE</span><div class="hexagono"><span>${dados.presenca}</span></div></div>
+                            <div class="atributo-item"><span class="atributo-label">VIG</span><div class="hexagono"><span>${dados.vigor}</span></div></div>
                         </div>
-                    </div>
-                    ` 
-                    : '';
+                    </div>`;
 
-                const vulnerabilidadeHTML = dados.vulnerabilidade 
-                    ? ` <div class="label">Fraqueza</div>
-                        <span class="tipo ${dados.vulnerabilidade.toLowerCase()}">${dados.vulnerabilidade}</span>`
-                    : ' <div class="label">Fraqueza</div> <span style="font-style: italic; color: #ccc;">Nenhuma</span>';
-                
-                // LÓGICA DE RESISTÊNCIAS E IMUNIDADES
-                const arrayResistencias = dados.resistencias || [];
-                const resNormais = arrayResistencias.filter(r => !r.imune);
-                const resImunes = arrayResistencias.filter(r => r.imune);
+                const vulnerabilidadeHTML = vulnerabilidades.length > 0
+                    ? `<div class="label">Fraqueza</div>
+                       ${vulnerabilidades.map(v => `<span class="tipo ${v.toLowerCase()}">${v}</span>`).join(' ')}`
+                    : '<div class="label">Fraqueza</div> <span style="font-style: italic; color: #ccc;">Nenhuma</span>';
 
-                const resistenciasHTML = resNormais.length > 0
-                    ? resNormais.map(r => `
-                        <div>
-                            <span style="text-transform: capitalize;">${r.nome}</span>: ${r.valor}
-                        </div>
-                        `).join('')
-                    : '<div class="null">Nenhuma</div>';
-
-                const imunidadesHTML = resImunes.length > 0
-                    ? resImunes.map(r => `
-                        <div>
-                            <span style="text-transform: capitalize;">${r.nome}</span>
-                        </div>
-                        `).join('')
+                const arrayResistencias = Object.entries(resistencias);
+                const resistenciasHTML = arrayResistencias.length > 0
+                    ? arrayResistencias.map(([nome, valor]) => `
+                        <div><span style="text-transform: capitalize;">${nome}</span>: ${valor}</div>
+                      `).join('')
                     : '<div class="null">Nenhuma</div>';
                 
                 const enigmaHTML = dados.enigma_medo 
-                    ? `<div class="enigma-medo">
-                            <strong id="Enigma">Enigma de Medo:</strong> ${dados.enigma_medo}
-                        </div><br>` 
-                    : '';
-                
-                const periciasHTML = dados.pericias && dados.pericias.length > 0
-                    ? `<div class="pericias">
-                        <h3>PERÍCIAS</h3>
-                        ${dados.pericias.map(r => `
-                            <div class="pericias-item">
-                                <strong>${r.nome.toUpperCase()}</strong> 
-                                <p class="pericias-dado">${r.qtd_dado}d20+${r.bonus}<p>
-                            </div>
-                        `).join('')}
-                    </div>`
+                    ? `<div class="enigma-medo"><strong id="Enigma">Enigma de Medo:</strong> ${dados.enigma_medo}</div><br>` 
                     : '';
 
-                // Mapeia as ações replicando o estilo do livro do Ordem Paranormal
-                const acoesHTML = dados.acoes && dados.acoes.length > 0 
-                    ? dados.acoes.map(a => {
-                        // Mapeia o símbolo
-                        let icone = "◆"; // Padrão
-                        const duracao = a.duracao ? a.duracao.toLowerCase() : "";
-                        if (["movimento", "completa", "reação", "livre"].includes(duracao)) {
-                            icone = "❖";
-                        }
-
-                        // DURAÇÃO e TIPO (Ex: PADRÃO ◆ AGREDIR)
-                        const tipoAcao = a.tipo_acao ? a.tipo_acao.toUpperCase() : "HABILIDADE";
-                        const linha1 = `${duracao.toUpperCase()} ${icone} ${tipoAcao}`;
-
-                        //  NOME, Alcance e Crítico (Ex: GARRAS Corpo a corpo x2)
-                        const alcanceStr = a.alcance ? a.alcance.charAt(0).toUpperCase() + a.alcance.slice(1) : '';
-                        const criticoStr = a.critico ? `x${a.critico}` : '';
-                        const complementos = [alcanceStr, criticoStr].filter(Boolean).join(' ');
-                        
-                        // TESTE e DANO (Ex: TESTE 5d20+40 | DANO 4d10+30 Sangue)
-                        let testeStr = a.teste ? `<strong>TESTE</strong> ${a.teste.qtd_dado}d20+${a.teste.bonus}` : '';
-                        let danoStr = '';
-                        
-                        if (a.dano && (a.dano.qtd_dado !== undefined || a.dano.bonus !== undefined)) {
-                            // Verifica se tem dados para rolar (ex: 4d10+30) ou se é dano fixo (ex: 40)
-                            if (a.dano.qtd_dado > 0) {
-                                danoStr = `<strong>DANO</strong> ${a.dano.qtd_dado}${a.dano.tipo_dado}+${a.dano.bonus} <span style="text-transform: capitalize;">${a.dano.tipo_dano || ''}</span>`.trim();
-                            } else if (a.dano.bonus > 0) {
-                                danoStr = `<strong>DANO</strong> ${a.dano.bonus} <span style="text-transform: capitalize;">${a.dano.tipo_dano || ''}</span>`.trim();
-                            }
-                        }
-                        const linhaRolagens = [testeStr, danoStr].filter(Boolean).join(' | ');
-
-                        // HTML final do Ataque
-                        return `
-                            <div class="acao-item">
-
-                                <div>${linha1}</div>
-
-                                <div class="corpo-item">
-                                    <div>
-                                        <strong>${a.nome}</strong> 
-                                        ${complementos ? `<span>| ${complementos}</span>` : ''}
-                                    </div>
-                                    ${linhaRolagens ? `<div>${linhaRolagens}</div>` : ''}
-                                    ${a.descricao ? `<div id="acao-descricao">${a.descricao}</div>` : ''}
-                                </div>
-                                
+                const acoesHTML = acoes.length > 0 
+                    ? acoes.map(a => `
+                        <div class="acao-item">
+                            <div>◆ ${a.tipo || 'AÇÃO'}</div>
+                            <div class="corpo-item">
+                                <div><strong>${a.nome}</strong></div>
+                                ${a.teste ? `<div><strong>TESTE</strong> ${a.teste} | <strong>DANO</strong> ${a.dano}</div>` : ''}
+                                ${a.efeito ? `<div>${a.efeito}</div>` : ''}
                             </div>
-                        `;
-                    }).join('') 
+                        </div>
+                    `).join('') 
                     : '<div class="erro">Nenhuma ação cadastrada</div>';
 
                 div.innerHTML = `
@@ -197,68 +122,33 @@
                         <div class="tipos">${tiposHTML}</div>
                         <br>
                         <div id="img-texto">
-                            <img src="${dados.img}" alt="Imagem de ${dados.nome}" class="imagem-criatura" />
+                            <img src="${dados.img || 'https://via.placeholder.com/150'}" alt="Imagem de ${dados.nome}" class="imagem-criatura" />
                             <div class="descricao">${dados.descricao}</div>
                         </div>
                         <br>
-
                         ${presencaHTML}
-
                         ${atributosHTML}
-
                         <br>
                         <div class='info-grid'>
+                            <div class='info-item'><div class='label'>VD</div><div class='value'>${dados.vd}</div></div>
+                            <div class='info-item'><div class='label'>Tamanho</div><div class='value'>${dados.tamanho}</div></div>
                             <div class='info-item'>
-                                <div class='label'>VD</div>
-                                <div class='value'>${dados.VD}</div>
+                                <div class='label'>PV Total</div><div class='value'>${dados.pv_max}</div>
+                                <div class='label2'>Machucado</div><div class='value'>${dados.pv_machucado}</div>
                             </div>
-                            <div class='info-item'>
-                                <div class='label'>Tamanho</div>
-                                <div class='value'>${dados.tamanho}</div>
-                            </div>
-                            <div class='info-item'>
-                                <div class='label'>PV Total</div>
-                                <div class='value'>${dados.pontos_vida.total}</div>
-                                <div class='label2'>Machucado</div>
-                                <div class='value'>${dados.pontos_vida.machucado}</div>
-                            </div>
-                            <div class='info-item'>
-                                <div class='label'>Defesa</div>
-                                <div class='value'>${dados.defesa}</div>
-                            </div>
-                            <div class='info-item'>
-                                <div class='label'>Deslocamento</div>
-                                <div class='value'>${dados.deslocamento}m</div>
-                            </div>
+                            <div class='info-item'><div class='label'>Defesa</div><div class='value'>${dados.defesa}</div></div>
+                            <div class='info-item'><div class='label'>Deslocamento</div><div class='value'>${dados.deslocamento}</div></div>
                         </div>
-
                         <div class='info-grid-defesa'>
                             <div class='info-item'>
                                 <div class='label'>Resistências</div>
-                                <div class='value' style="font-size: medium;">
-                                    ${resistenciasHTML}
-                                </div>
+                                <div class='value' style="font-size: medium;">${resistenciasHTML}</div>
                             </div>
-
-                            <div class='info-item'>
-                                <div class='label'>Imunidades</div>
-                                <div class='value' style="font-size: medium;">
-                                    ${imunidadesHTML}
-                                </div>
-                            </div>
-
-                            <div class='info-item'>
-                                ${vulnerabilidadeHTML}
-                            </div>
+                            <div class='info-item'>${vulnerabilidadeHTML}</div>
                         </div>
                         <br>
-
                         ${enigmaHTML}
-
-                        ${periciasHTML}
-
                     </div>
-
                     <div class="card">
                         <div class='habilidades'>
                             <h3>AÇÕES</h3>
@@ -268,7 +158,8 @@
                 `;
                 
             } catch (e) {
-                div.innerHTML = '<div class="erro">Erro ao conectar com o servidor. Verifique se a API está rodando.</div>';
+                console.error(e);
+                div.innerHTML = '<div class="erro">Erro ao conectar com o servidor. Verifique se a API e o banco de dados estão rodando.</div>';
             }
         }
     </script>

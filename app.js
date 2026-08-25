@@ -4,7 +4,7 @@ const PORT = 3000;
 const cors = require('cors');
 //Exportas as rotas
 
-const ameacaRoutes = require('./src/routes/ameacas'); //rota das ameaças
+const ameacaRoutes = require('./Backend/src/routes/ameacas'); // rota das ameacas
 
 app.use(cors());
 app.use(express.json());

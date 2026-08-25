@@ -89,14 +89,14 @@
 
                 const vulnerabilidadeHTML = vulnerabilidades.length > 0
                     ? `<div class="label">Fraqueza</div>
-                       ${vulnerabilidades.map(v => `<span class="tipo ${v.toLowerCase()}">${v}</span>`).join(' ')}`
+                        ${vulnerabilidades.map(v => `<span class="tipo ${v.toLowerCase()}">${v}</span>`).join(' ')}`
                     : '<div class="label">Fraqueza</div> <span style="font-style: italic; color: #ccc;">Nenhuma</span>';
 
                 const arrayResistencias = Object.entries(resistencias);
                 const resistenciasHTML = arrayResistencias.length > 0
                     ? arrayResistencias.map(([nome, valor]) => `
                         <div><span style="text-transform: capitalize;">${nome}</span>: ${valor}</div>
-                      `).join('')
+                        `).join('')
                     : '<div class="null">Nenhuma</div>';
                 
                 const enigmaHTML = dados.enigma_medo 
